@@ -5,6 +5,62 @@ The system addresses inefficiencies in manual grading, ensuring **objective, con
 
 ---
 
+# MATLAB Toolbox Requirements
+
+This project integrates **Genetic Programming (GP)** with **Fuzzy Logic (FL)** and hardware control for automated lettuce grading.  
+To run the code successfully, the following MATLAB toolboxes and support packages are required:
+
+## ✅ Required Toolboxes
+- **GPTIPS Toolbox**  
+- **Fuzzy Logic Toolbox**  
+- **Image Acquisition Toolbox**  
+- **Image Processing Toolbox**  
+- **Spreadsheet Toolbox / MATLAB Excel Integration**
+-  
+## ✅ Required Support Packages
+- **MATLAB Support Package for USB Webcams** 
+- **MATLAB Support Package for Arduino Hardware**  
+---
+
+### 🔧 Installation Notes
+- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).  
+---
+
+## 📌 Citation and Request
+If you use this work useful, kindly cite us. Thanks.
+
+We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
+---
+
+## Directory
+
+ fuzzy_modelling  `modelling done under fuzzy designer`
+│   └── Fuzzy_Finale.fis
+├── genetic_models `made GP models along with model and pareto report`
+│   ├── chlA_pareto
+│   │   ├── chlA_m241g50r50_MR.html
+│   │   └── chlA_m241g50r50_pareto.html
+│   ├── chla.m
+│   ├── moist.m
+│   ├── moist_pareto
+│   │   ├── moist_m2248g50r50_MR.html
+│   │   └── moist_m2248g50r50_pareto.html
+│   ├── weight.m
+│   └── weight_pareto
+│       ├── weight_m967g50r50_MR.html
+│       └── weight_m967g50r50_pareto.html
+├── main.m `main script loop`
+└── tests `optional tests done to ensure system functionality`
+    ├── Conveyor_Move.asv
+    ├── Conveyor_Move.m
+    ├── Fuzzy_Test.asv
+    ├── Fuzzy_Test.m
+    ├── Test_cam.m
+    ├── Test_sensor.m
+    └── servo_test.m
+    
+---
+# ABOUT THE PAPER:
 ## ✨ Key Features
 - Uses **image-derived features** (RGB & HSV) for analysis.
 - Estimates **chlorophyll-a**, **moisture content**, and **fresh head weight** via genetic programming (GP) models.
@@ -51,34 +107,6 @@ Three key quality parameters were measured in the laboratory:
   - Fresh Head Weight: 85.38%  
 - Overall **system grading accuracy: 90% (27/30 samples correctly classified)**.  
 - Minor misclassifications occurred, mostly biasing towards Grade 2 when the true grade was Grade 3.
-
----
-
-# MATLAB Toolbox Requirements
-
-This project integrates **Genetic Programming (GP)** with **Fuzzy Logic (FL)** and hardware control for automated lettuce grading.  
-To run the code successfully, the following MATLAB toolboxes and support packages are required:
-
-## ✅ Required Toolboxes
-- **GPTIPS Toolbox**  
-- **Fuzzy Logic Toolbox**  
-- **Image Acquisition Toolbox**  
-- **Image Processing Toolbox**  
-- **Spreadsheet Toolbox / MATLAB Excel Integration**
--  
-## ✅ Required Support Packages
-- **MATLAB Support Package for USB Webcams** 
-- **MATLAB Support Package for Arduino Hardware**  
----
-
-### 🔧 Installation Notes
-- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).  
----
-
-## 📌 Citation and Request
-If you use this work useful, kindly cite us. Thanks.
-
-We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
 ---
 
 ## 🛠️ Authors
