@@ -7,7 +7,7 @@ The system addresses inefficiencies in manual grading, ensuring **objective, con
 
 ## ✨ Key Features
 - Uses **image-derived features** (RGB & HSV) for analysis.
-- Estimates **chlorophyll-a**, **moisture content**, and **fresh head weight** via GP models.
+- Estimates **chlorophyll-a**, **moisture content**, and **fresh head weight** via genetic programming (GP) models.
 - Classifies lettuce into **three grades** using a **Mamdani-Type 1 fuzzy logic inference system**:
   - **Grade 1 (High Quality)**  
   - **Grade 2 (Medium Quality)**  
