@@ -36,31 +36,35 @@ We did not provide the raw images and lab testing in this repository due to priv
 
 ## Directory
 
-├── fuzzy_modelling  `modelling done under fuzzy designer`
-│   └── Fuzzy_Finale.fis
-├── genetic_models `made GP models along with model and pareto report`
-│   ├── chlA_pareto
-│   │   ├── chlA_m241g50r50_MR.html
-│   │   └── chlA_m241g50r50_pareto.html
-│   ├── chla.m
-│   ├── moist.m
-│   ├── moist_pareto
-│   │   ├── moist_m2248g50r50_MR.html
-│   │   └── moist_m2248g50r50_pareto.html
-│   ├── weight.m
-│   └── weight_pareto
-│       ├── weight_m967g50r50_MR.html
-│       └── weight_m967g50r50_pareto.html
-├── main.m `main script loop`
-└── tests `optional tests done to ensure system functionality`
-    ├── Conveyor_Move.asv
-    ├── Conveyor_Move.m
-    ├── Fuzzy_Test.asv
-    ├── Fuzzy_Test.m
-    ├── Test_cam.m
-    ├── Test_sensor.m
-    └── servo_test.m
-    
+📂 Project Root
+├── 📂 fuzzy_modelling # Fuzzy inference system (built in Fuzzy Designer)
+│ └── Fuzzy_Finale.fis
+│
+├── 📂 genetic_models # GP models + reports
+│ ├── 📂 chlA_pareto
+│ │ ├── chlA_m241g50r50_MR.html
+│ │ └── chlA_m241g50r50_pareto.html
+│ ├── chla.m
+│ ├── moist.m
+│ ├── 📂 moist_pareto
+│ │ ├── moist_m2248g50r50_MR.html
+│ │ └── moist_m2248g50r50_pareto.html
+│ ├── weight.m
+│ └── 📂 weight_pareto
+│ ├── weight_m967g50r50_MR.html
+│ └── weight_m967g50r50_pareto.html
+│
+├── main.m # Main script loop
+│
+└── 📂 tests # Optional tests for system validation
+├── Conveyor_Move.asv
+├── Conveyor_Move.m
+├── Fuzzy_Test.asv
+├── Fuzzy_Test.m
+├── Test_cam.m
+├── Test_sensor.m
+└── servo_test.m
+
 ---
 # ABOUT THE SYSTEM:
 ## ✨ Key Features
