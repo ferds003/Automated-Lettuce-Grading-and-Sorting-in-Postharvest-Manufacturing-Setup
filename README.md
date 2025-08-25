@@ -54,26 +54,25 @@ Three key quality parameters were measured in the laboratory:
 
 ---
 
-## 🚀 Improvements & Future Work
-While the system demonstrates strong potential, several enhancements could improve robustness and real-world applicability:
+# MATLAB Toolbox Requirements
 
-1. **Expand Dataset Size**
-   - Current dataset: 56 samples (augmented to 617).  
-   - Future: Increase real-world samples across varying lighting, maturity stages, and growing conditions.
-2. **Improve Moisture Content Estimation**
-   - GP models for moisture showed lower R² (0.43). Consider incorporating more features and other lettuce quality parameters for better accuracy.
-3. **Integrate Deep Learning with Interpretability**
-   - Current system prioritizes interpretability (GP + FL).  
-   - Hybrid models combining **CNNs for feature extraction** + **GP/FL for decision-making** could balance accuracy and transparency.
-4. **Hardware Integration**
-   - Automate real-time grading at farms or markets.
-   - Comparative analysis of the study compared to the traditional postharvest handling. 
-5. **Refine Fuzzy Logic Rules**
-   - More nuanced membership functions could better capture borderline cases (L2/L3 misclassifications).  
-   - Explore **Type-2 fuzzy logic** for uncertainty handling.
-6. **Multi-Crop Adaptation**
-   - Extend our approach to other leafy vegetables or fruits by retraining GP models and fuzzy rules.
+This project integrates **Genetic Programming (GP)** with **Fuzzy Logic (FL)** and hardware control for automated lettuce grading.  
+To run the code successfully, the following MATLAB toolboxes and support packages are required:
 
+## ✅ Required Toolboxes
+- **GPTIPS Toolbox**  
+- **Fuzzy Logic Toolbox**  
+- **Image Acquisition Toolbox**  
+- **Image Processing Toolbox**  
+- **Spreadsheet Toolbox / MATLAB Excel Integration**
+-  
+## ✅ Required Support Packages
+- **MATLAB Support Package for USB Webcams** 
+- **MATLAB Support Package for Arduino Hardware**  
+---
+
+### 🔧 Installation Notes
+- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).  
 ---
 
 ## 📌 Citation and Request
