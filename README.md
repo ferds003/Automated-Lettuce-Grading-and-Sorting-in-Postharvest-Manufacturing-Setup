@@ -1,4 +1,4 @@
-# Automated-Lettuce-Grading-and-Sorting-in-Postharvest-Manufacturing-Setup-
+# Automated-Lettuce-Grading-and-Sorting-in-Postharvest-Manufacturing-Setup
 
 This project presents an **automated quality grading system** for iceberg lettuce (*Lactuca sativa var. capitata*), integrating **Genetic Programming (GP)** for parameter estimation and **Fuzzy Logic (FL)** for quality classification.  
 The system addresses inefficiencies in manual grading, ensuring **objective, consistent, and non-destructive** quality assessment.
@@ -10,31 +10,33 @@ The system addresses inefficiencies in manual grading, ensuring **objective, con
 This project integrates **Genetic Programming (GP)** with **Fuzzy Logic (FL)** and hardware control for automated lettuce grading.  
 To run the code successfully, the following MATLAB toolboxes and support packages are required:
 
-## ✅ Required Toolboxes
+## ✅ Required Toolbox
 - **GPTIPS Toolbox**  
 - **Fuzzy Logic Toolbox**  
 - **Image Acquisition Toolbox**  
 - **Image Processing Toolbox**  
 - **Spreadsheet Toolbox / MATLAB Excel Integration**
--  
+  
 ## ✅ Required Support Packages
 - **MATLAB Support Package for USB Webcams** 
 - **MATLAB Support Package for Arduino Hardware**  
----
 
 ### 🔧 Installation Notes
-- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).  
+- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).
+
+ 
 ---
-
+  
 ## 📌 Citation and Request
-If you use this work useful, kindly cite us. Thanks.
 
+If you use this work useful, kindly cite us. Thanks.
 We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
+
 ---
 
 ## Directory
 
- fuzzy_modelling  `modelling done under fuzzy designer`
+├── fuzzy_modelling  `modelling done under fuzzy designer`
 │   └── Fuzzy_Finale.fis
 ├── genetic_models `made GP models along with model and pareto report`
 │   ├── chlA_pareto
@@ -60,7 +62,7 @@ We did not provide the raw images and lab testing in this repository due to priv
     └── servo_test.m
     
 ---
-# ABOUT THE PAPER:
+# ABOUT THE SYSTEM:
 ## ✨ Key Features
 - Uses **image-derived features** (RGB & HSV) for analysis.
 - Estimates **chlorophyll-a**, **moisture content**, and **fresh head weight** via genetic programming (GP) models.
