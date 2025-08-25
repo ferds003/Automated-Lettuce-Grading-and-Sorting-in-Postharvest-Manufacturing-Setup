@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" name="description" content="GPTIPS 2 Multigene model performance report" name="author" content="Dominic Searson"/>
+<title>GPTIPS model report.</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load('visualization', '1', {packages: ['table']});
+google.load('visualization', '1', {packages: ['orgchart']});google.load('visualization', '1', {packages: ['corechart']});</script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+h1, h2, h3 {
+color: #0073BD; margin-top: 30px; 
+}
+p.warn {
+color: #d9541a; 
+}
+p.table {
+font-size: 120%; 
+}
+p.muted {
+font-size: 120%; color: gray;
+}
+.google-visualization-table-table {
+font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+</style>
+<style>
+.google-visualization-orgchart-node {
+color: black ;text-align: center;vertical-align: middle;font-family: 'Open Sans' ,'Lucida Sans Unicode', 'Lucida Grande', sans-serif;border: 2px solid #0073BD ;background-color: white;background: -webkit-gradient(linear, left top, left bottom, from(white), to(white));vertical-align: middle;box-shadow: none;-webkit-box-shadow: none;-moz-box-shadow: none;}
+</style>
+
+<style>
+.google-visualization-orgchart-lineleft {
+ border-left: 2px solid #0073BD ; }.google-visualization-orgchart-lineright { border-right: 2px solid #0073BD ; }.google-visualization-orgchart-linebottom { border-bottom: 2px solid #0073BD ; }
+</style>
+
+<script type="text/javascript">
+function drawConfigTable() {
+var configdata = new google.visualization.DataTable();
+configdata.addColumn('string','Run parameter');
+configdata.addColumn('string','Value');
+configdata.addRows(11);
+configdata.setCell(0, 0, '<p class="table">Config file</p>');
+configdata.setCell(0, 1, '<p class="table">config_file</p>');
+configdata.setCell(1, 0, '<p class="table">Fitness function</p>');
+configdata.setCell(1, 1, '<p class="table">regressmulti_fitfun</p>');
+configdata.setCell(2, 0, '<p class="table">Generational user function</p>');
+configdata.setCell(2, 1, '<p class="table">None</p>');
+configdata.setCell(3, 0, '<p class="table">Data set</p>');
+configdata.setCell(3, 1, '<p class="table">Unspecified</p>');
+configdata.setCell(4, 0, '<p class="table">Parallel mode</p>');
+configdata.setCell(4, 1, '<p class="table">Off</p>');
+configdata.setCell(5, 0, '<p class="table">Parallel workers</p>');
+configdata.setCell(5, 1, '<p class="table">0</p>');
+configdata.setCell(6, 0, '<p class="table">Fitness cache</p>');
+configdata.setCell(6, 1, '<p class="table">Enabled<p>');
+configdata.setCell(7, 0, '<p class="table">Start time</p>');
+configdata.setCell(7, 1, '<p class="table">25-Mar-2025 20:38:20</p>');
+configdata.setCell(8, 0, '<p class="table">Stop time</p>');
+configdata.setCell(8, 1, '<p class="table">25-Mar-2025 20:44:30</p>');
+configdata.setCell(9, 0, '<p class="table">Merged independent runs</p>');
+configdata.setCell(9, 1, '<p class="table">50</p>');
+configdata.setCell(10, 0, '<p class="table">Run timeout (sec)</p>');
+configdata.setCell(10, 1, '<p class="table">30</p>');
+configviz_div = document.getElementById('configtable');
+configviz = new google.visualization.Table(configviz_div);
+configviz.draw(configdata,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawConfigTable);
+ </script>
+<script type="text/javascript">
+function drawModelPerfTrainTable() {
+var data = new google.visualization.DataTable();
+data.addColumn('string','Metric');
+data.addColumn('string','Value');
+data.addRows(6);
+data.setCell(0, 0, '<p class="table">R<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span></p>');
+data.setCell(0, 1, '<p class="table">0.56521</p>');
+data.setCell(1, 0, '<p class="table">RMSE</p>');
+data.setCell(1, 1, '<p class="table">100.0772</p>');
+data.setCell(2, 0, '<p class="table">MAE</p>');
+data.setCell(2, 1, '<p class="table">82.5544</p>');
+data.setCell(3, 0, '<p class="table">SSE</p>');
+data.setCell(3, 1, '<p class="table">4687232.3539</p>');
+data.setCell(4, 0, '<p class="table">Max. abs. error</p>');
+data.setCell(4, 1, '<p class="table">322.4747</p>');
+data.setCell(5, 0, '<p class="table">MSE</p>');
+data.setCell(5, 1, '<p class="table">10015.4537</p>');
+viz = new google.visualization.Table(document.getElementById('perf_train_table'));
+viz.draw(data,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawModelPerfTrainTable);
+ </script>
+<script type="text/javascript">
+function drawTree1() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(3);
+treedata.setCell(0, 0, '1','minus');
+treedata.setCell(1, 0, '2','x<sub>6</sub>');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>4</sub>');
+treedata.setCell(2, 1, '1');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree1'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree1);
+ </script>
+<script type="text/javascript">
+function drawTree2() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(4);
+treedata.setCell(0, 0, '1','neg');
+treedata.setCell(1, 0, '2','minus');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>1</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','x<sub>3</sub>');
+treedata.setCell(3, 1, '2');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree2'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree2);
+ </script>
+<script type="text/javascript">
+function drawTree3() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(6);
+treedata.setCell(0, 0, '1','cos');
+treedata.setCell(1, 0, '2','cube');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','log');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','times');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','x<sub>2</sub>');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','x<sub>5</sub>');
+treedata.setCell(5, 1, '4');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree3'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree3);
+ </script>
+<script type="text/javascript">
+function drawTree4() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(5);
+treedata.setCell(0, 0, '1','cos');
+treedata.setCell(1, 0, '2','cos');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','cube');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','log');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','x<sub>3</sub>');
+treedata.setCell(4, 1, '4');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree4'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree4);
+ </script>
+<script type="text/javascript">
+function drawTree5() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(5);
+treedata.setCell(0, 0, '1','times');
+treedata.setCell(1, 0, '2','minus');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>6</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','x<sub>2</sub>');
+treedata.setCell(3, 1, '2');
+treedata.setCell(4, 0, '5','x<sub>1</sub>');
+treedata.setCell(4, 1, '1');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree5'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree5);
+ </script>
+<script type="text/javascript">
+function drawTree6() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(14);
+treedata.setCell(0, 0, '1','square');
+treedata.setCell(1, 0, '2','log');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','minus');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','times');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','x<sub>6</sub>');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','add3');
+treedata.setCell(5, 1, '4');
+treedata.setCell(6, 0, '7','x<sub>5</sub>');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','x<sub>5</sub>');
+treedata.setCell(7, 1, '6');
+treedata.setCell(8, 0, '9','cos');
+treedata.setCell(8, 1, '6');
+treedata.setCell(9, 0, '10','square');
+treedata.setCell(9, 1, '9');
+treedata.setCell(10, 0, '11','neg');
+treedata.setCell(10, 1, '10');
+treedata.setCell(11, 0, '12','x<sub>5</sub>');
+treedata.setCell(11, 1, '11');
+treedata.setCell(12, 0, '13','cube');
+treedata.setCell(12, 1, '3');
+treedata.setCell(13, 0, '14','x<sub>5</sub>');
+treedata.setCell(13, 1, '13');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree6'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree6);
+ </script>
+<script type="text/javascript">
+function drawTree7() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(4);
+treedata.setCell(0, 0, '1','minus');
+treedata.setCell(1, 0, '2','x<sub>5</sub>');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','sqrt');
+treedata.setCell(2, 1, '1');
+treedata.setCell(3, 0, '4','x<sub>5</sub>');
+treedata.setCell(3, 1, '3');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree7'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree7);
+ </script>
+<script type="text/javascript">
+function drawTree8() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(12);
+treedata.setCell(0, 0, '1','add3');
+treedata.setCell(1, 0, '2','cube');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>6</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','abs');
+treedata.setCell(3, 1, '1');
+treedata.setCell(4, 0, '5','neg');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','sin');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','neg');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','sin');
+treedata.setCell(7, 1, '7');
+treedata.setCell(8, 0, '9','abs');
+treedata.setCell(8, 1, '8');
+treedata.setCell(9, 0, '10','x<sub>1</sub>');
+treedata.setCell(9, 1, '9');
+treedata.setCell(10, 0, '11','cos');
+treedata.setCell(10, 1, '1');
+treedata.setCell(11, 0, '12','x<sub>3</sub>');
+treedata.setCell(11, 1, '11');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree8'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree8);
+ </script>
+<script type="text/javascript">
+function drawTree9() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(8);
+treedata.setCell(0, 0, '1','neg');
+treedata.setCell(1, 0, '2','cos');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','cos');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','cube');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','log');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','times');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','x<sub>2</sub>');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','x<sub>5</sub>');
+treedata.setCell(7, 1, '6');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree9'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree9);
+ </script>
+<script type="text/javascript">
+function drawTree10() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(1);
+treedata.setCell(0, 0, '1','x<sub>1</sub>');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree10'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree10);
+ </script>
+<script type="text/javascript">
+function drawTree11() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(11);
+treedata.setCell(0, 0, '1','cos');
+treedata.setCell(1, 0, '2','cube');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','log');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','times');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','sqrt');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','x<sub>5</sub>');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','minus');
+treedata.setCell(6, 1, '4');
+treedata.setCell(7, 0, '8','minus');
+treedata.setCell(7, 1, '7');
+treedata.setCell(8, 0, '9','x<sub>1</sub>');
+treedata.setCell(8, 1, '8');
+treedata.setCell(9, 0, '10','x<sub>5</sub>');
+treedata.setCell(9, 1, '8');
+treedata.setCell(10, 0, '11','x<sub>5</sub>');
+treedata.setCell(10, 1, '7');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree11'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree11);
+ </script>
+<script type="text/javascript">
+function drawTree12() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(9);
+treedata.setCell(0, 0, '1','square');
+treedata.setCell(1, 0, '2','log');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','cos');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','cos');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','cube');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','log');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','times');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','x<sub>2</sub>');
+treedata.setCell(7, 1, '7');
+treedata.setCell(8, 0, '9','x<sub>5</sub>');
+treedata.setCell(8, 1, '7');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree12'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree12);
+ </script>
+<script type="text/javascript">
+function drawTree13() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(17);
+treedata.setCell(0, 0, '1','add3');
+treedata.setCell(1, 0, '2','cube');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>6</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','abs');
+treedata.setCell(3, 1, '1');
+treedata.setCell(4, 0, '5','neg');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','sin');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','abs');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','minus');
+treedata.setCell(7, 1, '7');
+treedata.setCell(8, 0, '9','times');
+treedata.setCell(8, 1, '8');
+treedata.setCell(9, 0, '10','x<sub>2</sub>');
+treedata.setCell(9, 1, '9');
+treedata.setCell(10, 0, '11','x<sub>5</sub>');
+treedata.setCell(10, 1, '9');
+treedata.setCell(11, 0, '12','cube');
+treedata.setCell(11, 1, '8');
+treedata.setCell(12, 0, '13','x<sub>5</sub>');
+treedata.setCell(12, 1, '12');
+treedata.setCell(13, 0, '14','cos');
+treedata.setCell(13, 1, '1');
+treedata.setCell(14, 0, '15','square');
+treedata.setCell(14, 1, '14');
+treedata.setCell(15, 0, '16','cos');
+treedata.setCell(15, 1, '15');
+treedata.setCell(16, 0, '17','x<sub>1</sub>');
+treedata.setCell(16, 1, '16');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree13'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree13);
+ </script>
+<script type="text/javascript">
+function drawTree14() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(1);
+treedata.setCell(0, 0, '1','x<sub>2</sub>');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree14'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree14);
+ </script>
+<script type="text/javascript">
+function drawTree15() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(8);
+treedata.setCell(0, 0, '1','cos');
+treedata.setCell(1, 0, '2','cube');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','log');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','times');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','x<sub>3</sub>');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','square');
+treedata.setCell(5, 1, '4');
+treedata.setCell(6, 0, '7','neg');
+treedata.setCell(6, 1, '6');
+treedata.setCell(7, 0, '8','x<sub>5</sub>');
+treedata.setCell(7, 1, '7');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree15'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree15);
+ </script>
+<script type="text/javascript">
+function drawTree16() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(6);
+treedata.setCell(0, 0, '1','cos');
+treedata.setCell(1, 0, '2','square');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','log');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','minus');
+treedata.setCell(3, 1, '3');
+treedata.setCell(4, 0, '5','x<sub>1</sub>');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','x<sub>5</sub>');
+treedata.setCell(5, 1, '4');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree16'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree16);
+ </script>
+<script type="text/javascript">
+function drawTree17() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(6);
+treedata.setCell(0, 0, '1','minus');
+treedata.setCell(1, 0, '2','minus');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>1</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','x<sub>5</sub>');
+treedata.setCell(3, 1, '2');
+treedata.setCell(4, 0, '5','cube');
+treedata.setCell(4, 1, '1');
+treedata.setCell(5, 0, '6','x<sub>5</sub>');
+treedata.setCell(5, 1, '5');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree17'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree17);
+ </script>
+<script type="text/javascript">
+function drawTree18() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(7);
+treedata.setCell(0, 0, '1','add3');
+treedata.setCell(1, 0, '2','log');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>3</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','x<sub>1</sub>');
+treedata.setCell(3, 1, '1');
+treedata.setCell(4, 0, '5','times');
+treedata.setCell(4, 1, '1');
+treedata.setCell(5, 0, '6','x<sub>6</sub>');
+treedata.setCell(5, 1, '5');
+treedata.setCell(6, 0, '7','x<sub>1</sub>');
+treedata.setCell(6, 1, '5');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree18'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree18);
+ </script>
+<script type="text/javascript">
+function drawTree19() {
+var treedata = new google.visualization.DataTable();
+treedata.addColumn('string','Id');
+treedata.addColumn('string','ParentId');
+treedata.addRows(6);
+treedata.setCell(0, 0, '1','sin');
+treedata.setCell(1, 0, '2','mult3');
+treedata.setCell(1, 1, '1');
+treedata.setCell(2, 0, '3','x<sub>3</sub>');
+treedata.setCell(2, 1, '2');
+treedata.setCell(3, 0, '4','sqrt');
+treedata.setCell(3, 1, '2');
+treedata.setCell(4, 0, '5','x<sub>2</sub>');
+treedata.setCell(4, 1, '4');
+treedata.setCell(5, 0, '6','x<sub>6</sub>');
+treedata.setCell(5, 1, '2');
+treeviz = new google.visualization.OrgChart(document.getElementById('tree19'));
+treeviz.draw(treedata,{allowHtml: true, allowCollapse: true});}
+google.setOnLoadCallback(drawTree19);
+ </script>
+<script type="text/javascript">
+function drawRunVarsTable() {
+var rundata = new google.visualization.DataTable();
+rundata.addColumn('string','Run parameter');
+rundata.addColumn('string','Value');
+rundata.addRows(17);
+rundata.setCell(0, 0, '<p class="table">Population size</p>');
+rundata.setCell(0, 1, '<p class="table">70</p>');
+rundata.setCell(1, 0, '<p class="table">Max. generations</p>');
+rundata.setCell(1, 1, '<p class="table">50</p>');
+rundata.setCell(2, 0, '<p class="table">Generations elapsed</p>');
+rundata.setCell(2, 1, '<p class="table">50</p>');
+rundata.setCell(3, 0, '<p class="table">Input variables</p>');
+rundata.setCell(3, 1, '<p class="table">6</p>');
+rundata.setCell(4, 0, '<p class="table">Training instances</p>');
+rundata.setCell(4, 1, '<p class="table">468</p>');
+rundata.setCell(5, 0, '<p class="table">Tournament size</p>');
+rundata.setCell(5, 1, '<p class="table">50</p>');
+rundata.setCell(6, 0, '<p class="table">Elite fraction</p>');
+rundata.setCell(6, 1, '<p class="table">0.1</p>');
+rundata.setCell(7, 0, '<p class="table">Lexicographic selection pressure</p>');
+rundata.setCell(7, 1, '<p class="table">On</p>');
+rundata.setCell(8, 0, '<p class="table">Probability of pareto tournament</p>');
+rundata.setCell(8, 1, '<p class="table">0.05</p>');
+rundata.setCell(9, 0, '<p class="table">Max. genes</p>');
+rundata.setCell(9, 1, '<p class="table">20</p>');
+rundata.setCell(10, 0, '<p class="table">Max. tree depth</p>');
+rundata.setCell(10, 1, '<p class="table">10</p>');
+rundata.setCell(11, 0, '<p class="table">Max. total nodes</p>');
+rundata.setCell(11, 1, '<p class="table">Inf</p>');
+rundata.setCell(12, 0, '<p class="table">ERC probability</p>');
+rundata.setCell(12, 1, '<p class="table">0.1<p class="muted">Integer 0.5</p></p>');
+rundata.setCell(13, 0, '<p class="table">Crossover probability</p>');
+rundata.setCell(13, 1, '<p class="table">0.84<p class="muted">High level 0.2, Low level 0.8</p></p>');
+rundata.setCell(14, 0, '<p class="table">Mutation probabilities</p>');
+rundata.setCell(14, 1, '<p class="table">0.14<p class="muted">Subtree 0.9, Input 0.05, Perturb ERC 0.05</p></p>');
+rundata.setCell(15, 0, '<p class="table">Complexity measure</p>');
+rundata.setCell(15, 1, '<p class="table">Expressional</p>');
+rundata.setCell(16, 0, '<p class="table">Function set</p>');
+rundata.setCell(16, 1, '<p class="table">TIMES MINUS PLUS SQRT SQUARE SIN COS ADD3 MULT3 LOG CUBE NEG ABS</p>');
+runviz = new google.visualization.Table(document.getElementById('runtable'));
+runviz.draw(rundata,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawRunVarsTable);
+ </script>
+<script type="text/javascript">
+function drawTrainPredictions() {
+var trainpreddata = new google.visualization.DataTable();
+trainpreddata.addColumn('number','x');
+trainpreddata.addColumn('number','Actual');
+trainpreddata.addColumn('number','Predicted');
+trainpreddata.addRow([1,507,600.5902]);
+trainpreddata.addRow([2,479.2,529.9372]);
+trainpreddata.addRow([3,634,677.8553]);
+trainpreddata.addRow([4,739.5,647.0582]);
+trainpreddata.addRow([5,634,702.1638]);
+trainpreddata.addRow([6,710.2,517.9641]);
+trainpreddata.addRow([7,510.5,580.5701]);
+trainpreddata.addRow([8,441.3,552.6094]);
+trainpreddata.addRow([9,833.5,705.0077]);
+trainpreddata.addRow([10,712.9,756.7506]);
+trainpreddata.addRow([11,459.5,533.5741]);
+trainpreddata.addRow([12,773.9,695.8184]);
+trainpreddata.addRow([13,680.5,690.225]);
+trainpreddata.addRow([14,484.5,529.5585]);
+trainpreddata.addRow([15,493.5,603.4718]);
+trainpreddata.addRow([16,908.5,730.8712]);
+trainpreddata.addRow([17,710.2,647.9076]);
+trainpreddata.addRow([18,643,596.3141]);
+trainpreddata.addRow([19,441.3,553.2011]);
+trainpreddata.addRow([20,693,537.9246]);
+trainpreddata.addRow([21,803.1,795.6529]);
+trainpreddata.addRow([22,314,481.1063]);
+trainpreddata.addRow([23,441.3,556.7819]);
+trainpreddata.addRow([24,653,593.3648]);
+trainpreddata.addRow([25,772.8,681.6684]);
+trainpreddata.addRow([26,467.5,439.3215]);
+trainpreddata.addRow([27,646.5,609.2219]);
+trainpreddata.addRow([28,526.7,459.9573]);
+trainpreddata.addRow([29,439.8,545.6901]);
+trainpreddata.addRow([30,710.2,651.7555]);
+trainpreddata.addRow([31,862.3,813.4447]);
+trainpreddata.addRow([32,643,530.7657]);
+trainpreddata.addRow([33,526.5,609.711]);
+trainpreddata.addRow([34,744.5,716.6701]);
+trainpreddata.addRow([35,833.5,742.637]);
+trainpreddata.addRow([36,409,567.2487]);
+trainpreddata.addRow([37,827,824.6259]);
+trainpreddata.addRow([38,484,583.6232]);
+trainpreddata.addRow([39,520.8,709.8838]);
+trainpreddata.addRow([40,592.4,509.312]);
+trainpreddata.addRow([41,832.8,811.421]);
+trainpreddata.addRow([42,459.5,533.6221]);
+trainpreddata.addRow([43,508.5,591.4716]);
+trainpreddata.addRow([44,409,477.1206]);
+trainpreddata.addRow([45,507,600.6602]);
+trainpreddata.addRow([46,396.5,549.6603]);
+trainpreddata.addRow([47,574,521.7371]);
+trainpreddata.addRow([48,773.9,696.0669]);
+trainpreddata.addRow([49,803.4,725.9175]);
+trainpreddata.addRow([50,827,816.4628]);
+trainpreddata.addRow([51,627.3,555.5099]);
+trainpreddata.addRow([52,589.5,572.2565]);
+trainpreddata.addRow([53,752.5,845.8678]);
+trainpreddata.addRow([54,520.8,594.3335]);
+trainpreddata.addRow([55,526.7,627.8766]);
+trainpreddata.addRow([56,613.5,785.8262]);
+trainpreddata.addRow([57,475.4,475.4356]);
+trainpreddata.addRow([58,424.1,447.1006]);
+trainpreddata.addRow([59,693,532.9959]);
+trainpreddata.addRow([60,799.1,750.3702]);
+trainpreddata.addRow([61,827,816.5125]);
+trainpreddata.addRow([62,827,712.6456]);
+trainpreddata.addRow([63,818.3,650.5084]);
+trainpreddata.addRow([64,589.5,540.827]);
+trainpreddata.addRow([65,634,679.4351]);
+trainpreddata.addRow([66,509,628.1204]);
+trainpreddata.addRow([67,787.9,773.7056]);
+trainpreddata.addRow([68,891.7,666.7169]);
+trainpreddata.addRow([69,629.2,551.5114]);
+trainpreddata.addRow([70,589.5,560.597]);
+trainpreddata.addRow([71,526.7,622.812]);
+trainpreddata.addRow([72,629.2,590.5415]);
+trainpreddata.addRow([73,801,596.7939]);
+trainpreddata.addRow([74,627.3,554.9218]);
+trainpreddata.addRow([75,592.4,495.8968]);
+trainpreddata.addRow([76,901.5,741.3177]);
+trainpreddata.addRow([77,493.5,575.7543]);
+trainpreddata.addRow([78,526.7,390.1811]);
+trainpreddata.addRow([79,653,591.3646]);
+trainpreddata.addRow([80,787.9,768.6224]);
+trainpreddata.addRow([81,801,613.6532]);
+trainpreddata.addRow([82,420.1,520.4037]);
+trainpreddata.addRow([83,498.9,556.4781]);
+trainpreddata.addRow([84,475.4,464.0086]);
+trainpreddata.addRow([85,693,546.1656]);
+trainpreddata.addRow([86,680.5,559.4125]);
+trainpreddata.addRow([87,484.5,577.667]);
+trainpreddata.addRow([88,409,557.5953]);
+trainpreddata.addRow([89,420.1,545.1624]);
+trainpreddata.addRow([90,420.1,511.2339]);
+trainpreddata.addRow([91,512,559.1512]);
+trainpreddata.addRow([92,891.7,808.7168]);
+trainpreddata.addRow([93,653,590.9953]);
+trainpreddata.addRow([94,629.2,511.8031]);
+trainpreddata.addRow([95,510.5,549.9841]);
+trainpreddata.addRow([96,773.2,669.2821]);
+trainpreddata.addRow([97,680.5,536.0104]);
+trainpreddata.addRow([98,773.9,699.5376]);
+trainpreddata.addRow([99,575.8,589.5533]);
+trainpreddata.addRow([100,642,573.4679]);
+trainpreddata.addRow([101,479.2,453.9519]);
+trainpreddata.addRow([102,739.5,667.4278]);
+trainpreddata.addRow([103,509,522.2145]);
+trainpreddata.addRow([104,526.7,459.0704]);
+trainpreddata.addRow([105,414.3,682.4349]);
+trainpreddata.addRow([106,757.6,781.8888]);
+trainpreddata.addRow([107,543,540.9796]);
+trainpreddata.addRow([108,803.1,795.6493]);
+trainpreddata.addRow([109,627.3,591.71]);
+trainpreddata.addRow([110,891.7,812.0592]);
+trainpreddata.addRow([111,833.5,590.092]);
+trainpreddata.addRow([112,484.5,527.6138]);
+trainpreddata.addRow([113,414.3,551.475]);
+trainpreddata.addRow([114,629.2,530.9695]);
+trainpreddata.addRow([115,439.8,574.1599]);
+trainpreddata.addRow([116,510.5,536.1988]);
+trainpreddata.addRow([117,520.8,608.9829]);
+trainpreddata.addRow([118,420.1,513.5434]);
+trainpreddata.addRow([119,424.1,445.4654]);
+trainpreddata.addRow([120,592.4,643.6939]);
+trainpreddata.addRow([121,693,551.4447]);
+trainpreddata.addRow([122,445,554.4029]);
+trainpreddata.addRow([123,643,575.3137]);
+trainpreddata.addRow([124,595.5,716.8523]);
+trainpreddata.addRow([125,771.1,832.5022]);
+trainpreddata.addRow([126,613.5,763.5293]);
+trainpreddata.addRow([127,475.4,476.6116]);
+trainpreddata.addRow([128,854.9,804.9624]);
+trainpreddata.addRow([129,574,522.2338]);
+trainpreddata.addRow([130,592.4,668.9872]);
+trainpreddata.addRow([131,595.5,617.207]);
+trainpreddata.addRow([132,543,469.6616]);
+trainpreddata.addRow([133,512,693.1399]);
+trainpreddata.addRow([134,592.4,512.1336]);
+trainpreddata.addRow([135,652.7,784.7845]);
+trainpreddata.addRow([136,508.5,568.6865]);
+trainpreddata.addRow([137,712.9,744.8966]);
+trainpreddata.addRow([138,799.1,852.8633]);
+trainpreddata.addRow([139,613.5,639.4162]);
+trainpreddata.addRow([140,484.5,487.7917]);
+trainpreddata.addRow([141,507,600.5562]);
+trainpreddata.addRow([142,537,636.6157]);
+trainpreddata.addRow([143,908.5,729.5056]);
+trainpreddata.addRow([144,803.1,774.1063]);
+trainpreddata.addRow([145,484,648.0604]);
+trainpreddata.addRow([146,771.1,805.2274]);
+trainpreddata.addRow([147,439.8,540.1289]);
+trainpreddata.addRow([148,510.5,593.9474]);
+trainpreddata.addRow([149,908.5,731.0511]);
+trainpreddata.addRow([150,833.5,708.7601]);
+trainpreddata.addRow([151,908.5,592.6078]);
+trainpreddata.addRow([152,680.5,532.5326]);
+trainpreddata.addRow([153,744.5,721.784]);
+trainpreddata.addRow([154,396.5,607.9791]);
+trainpreddata.addRow([155,652.7,726.0109]);
+trainpreddata.addRow([156,509,629.2918]);
+trainpreddata.addRow([157,744.5,713.8154]);
+trainpreddata.addRow([158,833.5,866.3981]);
+trainpreddata.addRow([159,646.5,613.3909]);
+trainpreddata.addRow([160,854.9,918.4869]);
+trainpreddata.addRow([161,832.8,788.6954]);
+trainpreddata.addRow([162,752.5,565.4678]);
+trainpreddata.addRow([163,680.5,630.0269]);
+trainpreddata.addRow([164,510.5,635.497]);
+trainpreddata.addRow([165,882.9,763.761]);
+trainpreddata.addRow([166,643,586.0689]);
+trainpreddata.addRow([167,424.1,508.666]);
+trainpreddata.addRow([168,901.5,738.8436]);
+trainpreddata.addRow([169,744.5,739.2866]);
+trainpreddata.addRow([170,862.3,786.6553]);
+trainpreddata.addRow([171,891.7,768.902]);
+trainpreddata.addRow([172,409,545.0441]);
+trainpreddata.addRow([173,574,556.6917]);
+trainpreddata.addRow([174,513,437.3016]);
+trainpreddata.addRow([175,818.3,755.2855]);
+trainpreddata.addRow([176,589.5,462.3575]);
+trainpreddata.addRow([177,475.4,476.4273]);
+trainpreddata.addRow([178,479.2,455.5808]);
+trainpreddata.addRow([179,801,646.1136]);
+trainpreddata.addRow([180,396.5,619.7833]);
+trainpreddata.addRow([181,744.5,874.2686]);
+trainpreddata.addRow([182,862.3,813.7373]);
+trainpreddata.addRow([183,407,573.4629]);
+trainpreddata.addRow([184,595.5,592.7356]);
+trainpreddata.addRow([185,513,376.6401]);
+trainpreddata.addRow([186,537,493.4433]);
+trainpreddata.addRow([187,833.5,802.7812]);
+trainpreddata.addRow([188,592.4,661.9865]);
+trainpreddata.addRow([189,532.1,578.7576]);
+trainpreddata.addRow([190,509,511.1127]);
+trainpreddata.addRow([191,862.3,806.3487]);
+trainpreddata.addRow([192,526.5,502.7682]);
+trainpreddata.addRow([193,441.3,541.848]);
+trainpreddata.addRow([194,755,693.733]);
+trainpreddata.addRow([195,314,405.0943]);
+trainpreddata.addRow([196,414.3,500.4096]);
+trainpreddata.addRow([197,643,569.9025]);
+trainpreddata.addRow([198,827,823.82]);
+trainpreddata.addRow([199,712.9,750.1193]);
+trainpreddata.addRow([200,646.5,594.7351]);
+trainpreddata.addRow([201,854.9,916.3217]);
+trainpreddata.addRow([202,508.5,596.7054]);
+trainpreddata.addRow([203,537,492.3596]);
+trainpreddata.addRow([204,512,700.5563]);
+trainpreddata.addRow([205,441.3,557.5364]);
+trainpreddata.addRow([206,526.7,626.6204]);
+trainpreddata.addRow([207,510.5,547.2107]);
+trainpreddata.addRow([208,498.9,534.1022]);
+trainpreddata.addRow([209,424.1,442.986]);
+trainpreddata.addRow([210,627.3,556.0339]);
+trainpreddata.addRow([211,744.5,722.0251]);
+trainpreddata.addRow([212,445,633.9243]);
+trainpreddata.addRow([213,589.5,560.3304]);
+trainpreddata.addRow([214,396.5,621.7701]);
+trainpreddata.addRow([215,627.3,594.6367]);
+trainpreddata.addRow([216,508.5,591.1318]);
+trainpreddata.addRow([217,589.5,446.9292]);
+trainpreddata.addRow([218,882.9,741.3153]);
+trainpreddata.addRow([219,484.5,532.8808]);
+trainpreddata.addRow([220,652.7,725.6506]);
+trainpreddata.addRow([221,773.9,685.3709]);
+trainpreddata.addRow([222,526.5,637.7296]);
+trainpreddata.addRow([223,577.9,603.5133]);
+trainpreddata.addRow([224,532.1,620.1482]);
+trainpreddata.addRow([225,882.9,897.0552]);
+trainpreddata.addRow([226,467.5,452.9789]);
+trainpreddata.addRow([227,833.5,797.8062]);
+trainpreddata.addRow([228,459.5,567.5084]);
+trainpreddata.addRow([229,589.5,446.8172]);
+trainpreddata.addRow([230,627.3,600.1907]);
+trainpreddata.addRow([231,744.5,719.4191]);
+trainpreddata.addRow([232,646.5,561.0983]);
+trainpreddata.addRow([233,314,409.2163]);
+trainpreddata.addRow([234,595.5,696.8098]);
+trainpreddata.addRow([235,787.9,750.5685]);
+trainpreddata.addRow([236,833.5,730.7508]);
+trainpreddata.addRow([237,479.2,457.7647]);
+trainpreddata.addRow([238,484,516.5836]);
+trainpreddata.addRow([239,512,692.6577]);
+trainpreddata.addRow([240,891.7,741.1253]);
+trainpreddata.addRow([241,643,574.5505]);
+trainpreddata.addRow([242,445,627.3338]);
+trainpreddata.addRow([243,862.3,799.4674]);
+trainpreddata.addRow([244,827,707.1094]);
+trainpreddata.addRow([245,509,513.6505]);
+trainpreddata.addRow([246,787.9,773.5728]);
+trainpreddata.addRow([247,652.7,782.3244]);
+trainpreddata.addRow([248,803.4,754.0609]);
+trainpreddata.addRow([249,833.5,777.8463]);
+trainpreddata.addRow([250,574,564.8316]);
+trainpreddata.addRow([251,712.9,756.4036]);
+trainpreddata.addRow([252,652.7,797.8211]);
+trainpreddata.addRow([253,420.1,554.119]);
+trainpreddata.addRow([254,467.5,452.5443]);
+trainpreddata.addRow([255,772.8,707.55]);
+trainpreddata.addRow([256,574,565.9156]);
+trainpreddata.addRow([257,507,738.2436]);
+trainpreddata.addRow([258,445,583.7111]);
+trainpreddata.addRow([259,520.8,577.8459]);
+trainpreddata.addRow([260,459.5,534.5955]);
+trainpreddata.addRow([261,543,538.7094]);
+trainpreddata.addRow([262,757.6,785.0416]);
+trainpreddata.addRow([263,520.8,573.6299]);
+trainpreddata.addRow([264,634,677.1464]);
+trainpreddata.addRow([265,475.4,668.2482]);
+trainpreddata.addRow([266,459.5,591.2919]);
+trainpreddata.addRow([267,575.8,742.1143]);
+trainpreddata.addRow([268,484.5,483.8896]);
+trainpreddata.addRow([269,493.5,587.6724]);
+trainpreddata.addRow([270,493.5,599.8504]);
+trainpreddata.addRow([271,414.3,500.701]);
+trainpreddata.addRow([272,532.1,614.474]);
+trainpreddata.addRow([273,513,439.0168]);
+trainpreddata.addRow([274,693,537.4864]);
+trainpreddata.addRow([275,712.9,752.7361]);
+trainpreddata.addRow([276,509,531.5614]);
+trainpreddata.addRow([277,772.8,681.8224]);
+trainpreddata.addRow([278,479.2,457.1511]);
+trainpreddata.addRow([279,575.8,588.1249]);
+trainpreddata.addRow([280,712.9,751.3933]);
+trainpreddata.addRow([281,314,459.4719]);
+trainpreddata.addRow([282,712.9,769.728]);
+trainpreddata.addRow([283,414.3,501.8458]);
+trainpreddata.addRow([284,577.9,528.1102]);
+trainpreddata.addRow([285,680.5,532.5696]);
+trainpreddata.addRow([286,467.5,453.6585]);
+trainpreddata.addRow([287,537,492.4332]);
+trainpreddata.addRow([288,693,536.4351]);
+trainpreddata.addRow([289,589.5,452.4814]);
+trainpreddata.addRow([290,629.2,581.5475]);
+trainpreddata.addRow([291,592.4,662.5844]);
+trainpreddata.addRow([292,833.5,744.4978]);
+trainpreddata.addRow([293,680.5,753.7534]);
+trainpreddata.addRow([294,854.9,735.7105]);
+trainpreddata.addRow([295,613.5,765.7202]);
+trainpreddata.addRow([296,439.8,575.9012]);
+trainpreddata.addRow([297,739.5,602.747]);
+trainpreddata.addRow([298,908.5,733.1871]);
+trainpreddata.addRow([299,543,475.3217]);
+trainpreddata.addRow([300,787.9,773.6469]);
+trainpreddata.addRow([301,901.5,737.5426]);
+trainpreddata.addRow([302,757.6,729.6957]);
+trainpreddata.addRow([303,513,425.9056]);
+trainpreddata.addRow([304,575.8,741.9493]);
+trainpreddata.addRow([305,414.3,558.8977]);
+trainpreddata.addRow([306,803.1,774.3391]);
+trainpreddata.addRow([307,512,558.396]);
+trainpreddata.addRow([308,901.5,768.8287]);
+trainpreddata.addRow([309,803.1,774.7221]);
+trainpreddata.addRow([310,543,468.1078]);
+trainpreddata.addRow([311,493.5,601.2694]);
+trainpreddata.addRow([312,882.9,917.1023]);
+trainpreddata.addRow([313,574,566.3825]);
+trainpreddata.addRow([314,484.5,532.237]);
+trainpreddata.addRow([315,543,471.1797]);
+trainpreddata.addRow([316,459.5,536.0082]);
+trainpreddata.addRow([317,627.3,559.1422]);
+trainpreddata.addRow([318,409,476.3991]);
+trainpreddata.addRow([319,773.9,694.6337]);
+trainpreddata.addRow([320,526.5,498.0631]);
+trainpreddata.addRow([321,407,623.9252]);
+trainpreddata.addRow([322,441.3,524.4404]);
+trainpreddata.addRow([323,439.8,570.0366]);
+trainpreddata.addRow([324,744.5,740.722]);
+trainpreddata.addRow([325,653,597.737]);
+trainpreddata.addRow([326,801,633.3313]);
+trainpreddata.addRow([327,512,568.035]);
+trainpreddata.addRow([328,901.5,738.6663]);
+trainpreddata.addRow([329,493.5,607.9085]);
+trainpreddata.addRow([330,420.1,516.0232]);
+trainpreddata.addRow([331,799.1,758.9757]);
+trainpreddata.addRow([332,627.3,553.7753]);
+trainpreddata.addRow([333,467.5,562.9974]);
+trainpreddata.addRow([334,803.4,760.431]);
+trainpreddata.addRow([335,652.7,782.5194]);
+trainpreddata.addRow([336,832.8,797.9351]);
+trainpreddata.addRow([337,901.5,734.0305]);
+trainpreddata.addRow([338,803.4,696.3873]);
+trainpreddata.addRow([339,520.8,573.4974]);
+trainpreddata.addRow([340,642,494.5081]);
+trainpreddata.addRow([341,439.8,573.2472]);
+trainpreddata.addRow([342,493.5,600.4751]);
+trainpreddata.addRow([343,424.1,450.8132]);
+trainpreddata.addRow([344,757.6,733.5686]);
+trainpreddata.addRow([345,891.7,808.8782]);
+trainpreddata.addRow([346,526.5,600.2917]);
+trainpreddata.addRow([347,710.2,562.0237]);
+trainpreddata.addRow([348,589.5,549.4214]);
+trainpreddata.addRow([349,314,402.6524]);
+trainpreddata.addRow([350,484,561.6258]);
+trainpreddata.addRow([351,854.9,809.9278]);
+trainpreddata.addRow([352,771.1,801.0975]);
+trainpreddata.addRow([353,771.1,804.7595]);
+trainpreddata.addRow([354,643,590.02]);
+trainpreddata.addRow([355,680.5,536.5586]);
+trainpreddata.addRow([356,827,824.5793]);
+trainpreddata.addRow([357,595.5,697.0479]);
+trainpreddata.addRow([358,493.5,562.3272]);
+trainpreddata.addRow([359,799.1,848.971]);
+trainpreddata.addRow([360,646.5,560.8377]);
+trainpreddata.addRow([361,882.9,917.3874]);
+trainpreddata.addRow([362,833.5,803.3413]);
+trainpreddata.addRow([363,803.1,673.1793]);
+trainpreddata.addRow([364,755,688.4951]);
+trainpreddata.addRow([365,908.5,586.0253]);
+trainpreddata.addRow([366,772.8,678.7248]);
+trainpreddata.addRow([367,537,557.8863]);
+trainpreddata.addRow([368,510.5,547.4898]);
+trainpreddata.addRow([369,532.1,619.1782]);
+trainpreddata.addRow([370,595.5,693.7259]);
+trainpreddata.addRow([371,409,477.1995]);
+trainpreddata.addRow([372,409,550.4266]);
+trainpreddata.addRow([373,646.5,596.2009]);
+trainpreddata.addRow([374,646.5,554.0505]);
+trainpreddata.addRow([375,771.1,807.0016]);
+trainpreddata.addRow([376,772.8,633.1425]);
+trainpreddata.addRow([377,424.1,447.5308]);
+trainpreddata.addRow([378,643,570.3276]);
+trainpreddata.addRow([379,652.7,713.9134]);
+trainpreddata.addRow([380,575.8,739.8303]);
+trainpreddata.addRow([381,629.2,537.8879]);
+trainpreddata.addRow([382,407,574.7892]);
+trainpreddata.addRow([383,680.5,673.9654]);
+trainpreddata.addRow([384,507,623.5029]);
+trainpreddata.addRow([385,832.8,809.6213]);
+trainpreddata.addRow([386,498.9,530.9561]);
+trainpreddata.addRow([387,854.9,814.5985]);
+trainpreddata.addRow([388,680.5,712.6346]);
+trainpreddata.addRow([389,439.8,552.4754]);
+trainpreddata.addRow([390,833.5,705.9855]);
+trainpreddata.addRow([391,854.9,814.3171]);
+trainpreddata.addRow([392,520.8,603.3248]);
+trainpreddata.addRow([393,498.9,556.9674]);
+trainpreddata.addRow([394,891.7,758.588]);
+trainpreddata.addRow([395,574,571.777]);
+trainpreddata.addRow([396,498.9,522.0707]);
+trainpreddata.addRow([397,439.8,574.9187]);
+trainpreddata.addRow([398,854.9,814.3306]);
+trainpreddata.addRow([399,772.8,682.0699]);
+trainpreddata.addRow([400,537,492.7138]);
+trainpreddata.addRow([401,739.5,685.6813]);
+trainpreddata.addRow([402,407,705.4301]);
+trainpreddata.addRow([403,652.7,717.2743]);
+trainpreddata.addRow([404,498.9,552.603]);
+trainpreddata.addRow([405,771.1,832.8036]);
+trainpreddata.addRow([406,420.1,543.0208]);
+trainpreddata.addRow([407,589.5,562.0702]);
+trainpreddata.addRow([408,755,621.748]);
+trainpreddata.addRow([409,484.5,495.4861]);
+trainpreddata.addRow([410,441.3,531.3982]);
+trainpreddata.addRow([411,592.4,530.436]);
+trainpreddata.addRow([412,755,636.8351]);
+trainpreddata.addRow([413,833.5,797.773]);
+trainpreddata.addRow([414,891.7,813.2742]);
+trainpreddata.addRow([415,832.8,811.2474]);
+trainpreddata.addRow([416,771.1,832.8287]);
+trainpreddata.addRow([417,484.5,491.4063]);
+trainpreddata.addRow([418,755,538.7894]);
+trainpreddata.addRow([419,479.2,453.5954]);
+trainpreddata.addRow([420,595.5,684.1345]);
+trainpreddata.addRow([421,484,583.2688]);
+trainpreddata.addRow([422,803.1,602.5798]);
+trainpreddata.addRow([423,595.5,589.4149]);
+trainpreddata.addRow([424,680.5,605.8254]);
+trainpreddata.addRow([425,512,563.2426]);
+trainpreddata.addRow([426,646.5,595.8478]);
+trainpreddata.addRow([427,833.5,802.9518]);
+trainpreddata.addRow([428,803.4,750.5906]);
+trainpreddata.addRow([429,680.5,690.0138]);
+trainpreddata.addRow([430,532.1,666.2171]);
+trainpreddata.addRow([431,772.8,682.1825]);
+trainpreddata.addRow([432,445,520.0717]);
+trainpreddata.addRow([433,891.7,811.8803]);
+trainpreddata.addRow([434,799.1,849.2585]);
+trainpreddata.addRow([435,613.5,765.7463]);
+trainpreddata.addRow([436,507,741.7814]);
+trainpreddata.addRow([437,773.2,639.4145]);
+trainpreddata.addRow([438,818.3,753.393]);
+trainpreddata.addRow([439,409,484.9615]);
+trainpreddata.addRow([440,510.5,548.1181]);
+trainpreddata.addRow([441,513,439.6254]);
+trainpreddata.addRow([442,445,552.1587]);
+trainpreddata.addRow([443,424.1,485.2188]);
+trainpreddata.addRow([444,574,567.0394]);
+trainpreddata.addRow([445,818.3,650.5303]);
+trainpreddata.addRow([446,757.6,729.8165]);
+trainpreddata.addRow([447,414.3,499.1766]);
+trainpreddata.addRow([448,680.5,641.4755]);
+trainpreddata.addRow([449,818.3,760.1186]);
+trainpreddata.addRow([450,526.7,478.9233]);
+trainpreddata.addRow([451,773.2,647.668]);
+trainpreddata.addRow([452,613.5,639.0527]);
+trainpreddata.addRow([453,772.8,699.0831]);
+trainpreddata.addRow([454,646.5,594.1699]);
+trainpreddata.addRow([455,479.2,458.8304]);
+trainpreddata.addRow([456,833.5,604.9082]);
+trainpreddata.addRow([457,508.5,609.3735]);
+trainpreddata.addRow([458,901.5,728.2484]);
+trainpreddata.addRow([459,498.9,539.9987]);
+trainpreddata.addRow([460,744.5,718.9943]);
+trainpreddata.addRow([461,801,645.209]);
+trainpreddata.addRow([462,680.5,630.0757]);
+trainpreddata.addRow([463,772.8,682.4703]);
+trainpreddata.addRow([464,757.6,784.5915]);
+trainpreddata.addRow([465,693,542.0686]);
+trainpreddata.addRow([466,787.9,766.6809]);
+trainpreddata.addRow([467,634,703.8819]);
+trainpreddata.addRow([468,653,530.7974]);
+trainpredviz_div =  document.getElementById('trainpreds');
+trainpredviz = new google.visualization.LineChart(trainpredviz_div);
+trainpredviz.draw(trainpreddata,{curvetype: "function", width: 1000, height: 625, title: "Training data predictions",  fontName: "Open Sans",  explorer: { actions: ['dragToZoom', 'rightClickToReset'] }, chartArea: {left: 75,top: 75}, series: {0:{color: '#0073BD'},1:{color: '#D9541A'}}, hAxis: {title: 'Datapoint'},vAxis: {title: 'y'}});
+}
+google.setOnLoadCallback(drawTrainPredictions);
+ </script>
+<script type="text/javascript">
+function drawScatterTrain() {
+var data = new google.visualization.DataTable();
+data.addColumn('number','Actual');
+data.addColumn('number','Actual / Predicted');
+data.addColumn('number','Identity');
+data.addRow([507,600.5902,507]);
+data.addRow([479.2,529.9372,479.2]);
+data.addRow([634,677.8553,634]);
+data.addRow([739.5,647.0582,739.5]);
+data.addRow([634,702.1638,634]);
+data.addRow([710.2,517.9641,710.2]);
+data.addRow([510.5,580.5701,510.5]);
+data.addRow([441.3,552.6094,441.3]);
+data.addRow([833.5,705.0077,833.5]);
+data.addRow([712.9,756.7506,712.9]);
+data.addRow([459.5,533.5741,459.5]);
+data.addRow([773.9,695.8184,773.9]);
+data.addRow([680.5,690.225,680.5]);
+data.addRow([484.5,529.5585,484.5]);
+data.addRow([493.5,603.4718,493.5]);
+data.addRow([908.5,730.8712,908.5]);
+data.addRow([710.2,647.9076,710.2]);
+data.addRow([643,596.3141,643]);
+data.addRow([441.3,553.2011,441.3]);
+data.addRow([693,537.9246,693]);
+data.addRow([803.1,795.6529,803.1]);
+data.addRow([314,481.1063,314]);
+data.addRow([441.3,556.7819,441.3]);
+data.addRow([653,593.3648,653]);
+data.addRow([772.8,681.6684,772.8]);
+data.addRow([467.5,439.3215,467.5]);
+data.addRow([646.5,609.2219,646.5]);
+data.addRow([526.7,459.9573,526.7]);
+data.addRow([439.8,545.6901,439.8]);
+data.addRow([710.2,651.7555,710.2]);
+data.addRow([862.3,813.4447,862.3]);
+data.addRow([643,530.7657,643]);
+data.addRow([526.5,609.711,526.5]);
+data.addRow([744.5,716.6701,744.5]);
+data.addRow([833.5,742.637,833.5]);
+data.addRow([409,567.2487,409]);
+data.addRow([827,824.6259,827]);
+data.addRow([484,583.6232,484]);
+data.addRow([520.8,709.8838,520.8]);
+data.addRow([592.4,509.312,592.4]);
+data.addRow([832.8,811.421,832.8]);
+data.addRow([459.5,533.6221,459.5]);
+data.addRow([508.5,591.4716,508.5]);
+data.addRow([409,477.1206,409]);
+data.addRow([507,600.6602,507]);
+data.addRow([396.5,549.6603,396.5]);
+data.addRow([574,521.7371,574]);
+data.addRow([773.9,696.0669,773.9]);
+data.addRow([803.4,725.9175,803.4]);
+data.addRow([827,816.4628,827]);
+data.addRow([627.3,555.5099,627.3]);
+data.addRow([589.5,572.2565,589.5]);
+data.addRow([752.5,845.8678,752.5]);
+data.addRow([520.8,594.3335,520.8]);
+data.addRow([526.7,627.8766,526.7]);
+data.addRow([613.5,785.8262,613.5]);
+data.addRow([475.4,475.4356,475.4]);
+data.addRow([424.1,447.1006,424.1]);
+data.addRow([693,532.9959,693]);
+data.addRow([799.1,750.3702,799.1]);
+data.addRow([827,816.5125,827]);
+data.addRow([827,712.6456,827]);
+data.addRow([818.3,650.5084,818.3]);
+data.addRow([589.5,540.827,589.5]);
+data.addRow([634,679.4351,634]);
+data.addRow([509,628.1204,509]);
+data.addRow([787.9,773.7056,787.9]);
+data.addRow([891.7,666.7169,891.7]);
+data.addRow([629.2,551.5114,629.2]);
+data.addRow([589.5,560.597,589.5]);
+data.addRow([526.7,622.812,526.7]);
+data.addRow([629.2,590.5415,629.2]);
+data.addRow([801,596.7939,801]);
+data.addRow([627.3,554.9218,627.3]);
+data.addRow([592.4,495.8968,592.4]);
+data.addRow([901.5,741.3177,901.5]);
+data.addRow([493.5,575.7543,493.5]);
+data.addRow([526.7,390.1811,526.7]);
+data.addRow([653,591.3646,653]);
+data.addRow([787.9,768.6224,787.9]);
+data.addRow([801,613.6532,801]);
+data.addRow([420.1,520.4037,420.1]);
+data.addRow([498.9,556.4781,498.9]);
+data.addRow([475.4,464.0086,475.4]);
+data.addRow([693,546.1656,693]);
+data.addRow([680.5,559.4125,680.5]);
+data.addRow([484.5,577.667,484.5]);
+data.addRow([409,557.5953,409]);
+data.addRow([420.1,545.1624,420.1]);
+data.addRow([420.1,511.2339,420.1]);
+data.addRow([512,559.1512,512]);
+data.addRow([891.7,808.7168,891.7]);
+data.addRow([653,590.9953,653]);
+data.addRow([629.2,511.8031,629.2]);
+data.addRow([510.5,549.9841,510.5]);
+data.addRow([773.2,669.2821,773.2]);
+data.addRow([680.5,536.0104,680.5]);
+data.addRow([773.9,699.5376,773.9]);
+data.addRow([575.8,589.5533,575.8]);
+data.addRow([642,573.4679,642]);
+data.addRow([479.2,453.9519,479.2]);
+data.addRow([739.5,667.4278,739.5]);
+data.addRow([509,522.2145,509]);
+data.addRow([526.7,459.0704,526.7]);
+data.addRow([414.3,682.4349,414.3]);
+data.addRow([757.6,781.8888,757.6]);
+data.addRow([543,540.9796,543]);
+data.addRow([803.1,795.6493,803.1]);
+data.addRow([627.3,591.71,627.3]);
+data.addRow([891.7,812.0592,891.7]);
+data.addRow([833.5,590.092,833.5]);
+data.addRow([484.5,527.6138,484.5]);
+data.addRow([414.3,551.475,414.3]);
+data.addRow([629.2,530.9695,629.2]);
+data.addRow([439.8,574.1599,439.8]);
+data.addRow([510.5,536.1988,510.5]);
+data.addRow([520.8,608.9829,520.8]);
+data.addRow([420.1,513.5434,420.1]);
+data.addRow([424.1,445.4654,424.1]);
+data.addRow([592.4,643.6939,592.4]);
+data.addRow([693,551.4447,693]);
+data.addRow([445,554.4029,445]);
+data.addRow([643,575.3137,643]);
+data.addRow([595.5,716.8523,595.5]);
+data.addRow([771.1,832.5022,771.1]);
+data.addRow([613.5,763.5293,613.5]);
+data.addRow([475.4,476.6116,475.4]);
+data.addRow([854.9,804.9624,854.9]);
+data.addRow([574,522.2338,574]);
+data.addRow([592.4,668.9872,592.4]);
+data.addRow([595.5,617.207,595.5]);
+data.addRow([543,469.6616,543]);
+data.addRow([512,693.1399,512]);
+data.addRow([592.4,512.1336,592.4]);
+data.addRow([652.7,784.7845,652.7]);
+data.addRow([508.5,568.6865,508.5]);
+data.addRow([712.9,744.8966,712.9]);
+data.addRow([799.1,852.8633,799.1]);
+data.addRow([613.5,639.4162,613.5]);
+data.addRow([484.5,487.7917,484.5]);
+data.addRow([507,600.5562,507]);
+data.addRow([537,636.6157,537]);
+data.addRow([908.5,729.5056,908.5]);
+data.addRow([803.1,774.1063,803.1]);
+data.addRow([484,648.0604,484]);
+data.addRow([771.1,805.2274,771.1]);
+data.addRow([439.8,540.1289,439.8]);
+data.addRow([510.5,593.9474,510.5]);
+data.addRow([908.5,731.0511,908.5]);
+data.addRow([833.5,708.7601,833.5]);
+data.addRow([908.5,592.6078,908.5]);
+data.addRow([680.5,532.5326,680.5]);
+data.addRow([744.5,721.784,744.5]);
+data.addRow([396.5,607.9791,396.5]);
+data.addRow([652.7,726.0109,652.7]);
+data.addRow([509,629.2918,509]);
+data.addRow([744.5,713.8154,744.5]);
+data.addRow([833.5,866.3981,833.5]);
+data.addRow([646.5,613.3909,646.5]);
+data.addRow([854.9,918.4869,854.9]);
+data.addRow([832.8,788.6954,832.8]);
+data.addRow([752.5,565.4678,752.5]);
+data.addRow([680.5,630.0269,680.5]);
+data.addRow([510.5,635.497,510.5]);
+data.addRow([882.9,763.761,882.9]);
+data.addRow([643,586.0689,643]);
+data.addRow([424.1,508.666,424.1]);
+data.addRow([901.5,738.8436,901.5]);
+data.addRow([744.5,739.2866,744.5]);
+data.addRow([862.3,786.6553,862.3]);
+data.addRow([891.7,768.902,891.7]);
+data.addRow([409,545.0441,409]);
+data.addRow([574,556.6917,574]);
+data.addRow([513,437.3016,513]);
+data.addRow([818.3,755.2855,818.3]);
+data.addRow([589.5,462.3575,589.5]);
+data.addRow([475.4,476.4273,475.4]);
+data.addRow([479.2,455.5808,479.2]);
+data.addRow([801,646.1136,801]);
+data.addRow([396.5,619.7833,396.5]);
+data.addRow([744.5,874.2686,744.5]);
+data.addRow([862.3,813.7373,862.3]);
+data.addRow([407,573.4629,407]);
+data.addRow([595.5,592.7356,595.5]);
+data.addRow([513,376.6401,513]);
+data.addRow([537,493.4433,537]);
+data.addRow([833.5,802.7812,833.5]);
+data.addRow([592.4,661.9865,592.4]);
+data.addRow([532.1,578.7576,532.1]);
+data.addRow([509,511.1127,509]);
+data.addRow([862.3,806.3487,862.3]);
+data.addRow([526.5,502.7682,526.5]);
+data.addRow([441.3,541.848,441.3]);
+data.addRow([755,693.733,755]);
+data.addRow([314,405.0943,314]);
+data.addRow([414.3,500.4096,414.3]);
+data.addRow([643,569.9025,643]);
+data.addRow([827,823.82,827]);
+data.addRow([712.9,750.1193,712.9]);
+data.addRow([646.5,594.7351,646.5]);
+data.addRow([854.9,916.3217,854.9]);
+data.addRow([508.5,596.7054,508.5]);
+data.addRow([537,492.3596,537]);
+data.addRow([512,700.5563,512]);
+data.addRow([441.3,557.5364,441.3]);
+data.addRow([526.7,626.6204,526.7]);
+data.addRow([510.5,547.2107,510.5]);
+data.addRow([498.9,534.1022,498.9]);
+data.addRow([424.1,442.986,424.1]);
+data.addRow([627.3,556.0339,627.3]);
+data.addRow([744.5,722.0251,744.5]);
+data.addRow([445,633.9243,445]);
+data.addRow([589.5,560.3304,589.5]);
+data.addRow([396.5,621.7701,396.5]);
+data.addRow([627.3,594.6367,627.3]);
+data.addRow([508.5,591.1318,508.5]);
+data.addRow([589.5,446.9292,589.5]);
+data.addRow([882.9,741.3153,882.9]);
+data.addRow([484.5,532.8808,484.5]);
+data.addRow([652.7,725.6506,652.7]);
+data.addRow([773.9,685.3709,773.9]);
+data.addRow([526.5,637.7296,526.5]);
+data.addRow([577.9,603.5133,577.9]);
+data.addRow([532.1,620.1482,532.1]);
+data.addRow([882.9,897.0552,882.9]);
+data.addRow([467.5,452.9789,467.5]);
+data.addRow([833.5,797.8062,833.5]);
+data.addRow([459.5,567.5084,459.5]);
+data.addRow([589.5,446.8172,589.5]);
+data.addRow([627.3,600.1907,627.3]);
+data.addRow([744.5,719.4191,744.5]);
+data.addRow([646.5,561.0983,646.5]);
+data.addRow([314,409.2163,314]);
+data.addRow([595.5,696.8098,595.5]);
+data.addRow([787.9,750.5685,787.9]);
+data.addRow([833.5,730.7508,833.5]);
+data.addRow([479.2,457.7647,479.2]);
+data.addRow([484,516.5836,484]);
+data.addRow([512,692.6577,512]);
+data.addRow([891.7,741.1253,891.7]);
+data.addRow([643,574.5505,643]);
+data.addRow([445,627.3338,445]);
+data.addRow([862.3,799.4674,862.3]);
+data.addRow([827,707.1094,827]);
+data.addRow([509,513.6505,509]);
+data.addRow([787.9,773.5728,787.9]);
+data.addRow([652.7,782.3244,652.7]);
+data.addRow([803.4,754.0609,803.4]);
+data.addRow([833.5,777.8463,833.5]);
+data.addRow([574,564.8316,574]);
+data.addRow([712.9,756.4036,712.9]);
+data.addRow([652.7,797.8211,652.7]);
+data.addRow([420.1,554.119,420.1]);
+data.addRow([467.5,452.5443,467.5]);
+data.addRow([772.8,707.55,772.8]);
+data.addRow([574,565.9156,574]);
+data.addRow([507,738.2436,507]);
+data.addRow([445,583.7111,445]);
+data.addRow([520.8,577.8459,520.8]);
+data.addRow([459.5,534.5955,459.5]);
+data.addRow([543,538.7094,543]);
+data.addRow([757.6,785.0416,757.6]);
+data.addRow([520.8,573.6299,520.8]);
+data.addRow([634,677.1464,634]);
+data.addRow([475.4,668.2482,475.4]);
+data.addRow([459.5,591.2919,459.5]);
+data.addRow([575.8,742.1143,575.8]);
+data.addRow([484.5,483.8896,484.5]);
+data.addRow([493.5,587.6724,493.5]);
+data.addRow([493.5,599.8504,493.5]);
+data.addRow([414.3,500.701,414.3]);
+data.addRow([532.1,614.474,532.1]);
+data.addRow([513,439.0168,513]);
+data.addRow([693,537.4864,693]);
+data.addRow([712.9,752.7361,712.9]);
+data.addRow([509,531.5614,509]);
+data.addRow([772.8,681.8224,772.8]);
+data.addRow([479.2,457.1511,479.2]);
+data.addRow([575.8,588.1249,575.8]);
+data.addRow([712.9,751.3933,712.9]);
+data.addRow([314,459.4719,314]);
+data.addRow([712.9,769.728,712.9]);
+data.addRow([414.3,501.8458,414.3]);
+data.addRow([577.9,528.1102,577.9]);
+data.addRow([680.5,532.5696,680.5]);
+data.addRow([467.5,453.6585,467.5]);
+data.addRow([537,492.4332,537]);
+data.addRow([693,536.4351,693]);
+data.addRow([589.5,452.4814,589.5]);
+data.addRow([629.2,581.5475,629.2]);
+data.addRow([592.4,662.5844,592.4]);
+data.addRow([833.5,744.4978,833.5]);
+data.addRow([680.5,753.7534,680.5]);
+data.addRow([854.9,735.7105,854.9]);
+data.addRow([613.5,765.7202,613.5]);
+data.addRow([439.8,575.9012,439.8]);
+data.addRow([739.5,602.747,739.5]);
+data.addRow([908.5,733.1871,908.5]);
+data.addRow([543,475.3217,543]);
+data.addRow([787.9,773.6469,787.9]);
+data.addRow([901.5,737.5426,901.5]);
+data.addRow([757.6,729.6957,757.6]);
+data.addRow([513,425.9056,513]);
+data.addRow([575.8,741.9493,575.8]);
+data.addRow([414.3,558.8977,414.3]);
+data.addRow([803.1,774.3391,803.1]);
+data.addRow([512,558.396,512]);
+data.addRow([901.5,768.8287,901.5]);
+data.addRow([803.1,774.7221,803.1]);
+data.addRow([543,468.1078,543]);
+data.addRow([493.5,601.2694,493.5]);
+data.addRow([882.9,917.1023,882.9]);
+data.addRow([574,566.3825,574]);
+data.addRow([484.5,532.237,484.5]);
+data.addRow([543,471.1797,543]);
+data.addRow([459.5,536.0082,459.5]);
+data.addRow([627.3,559.1422,627.3]);
+data.addRow([409,476.3991,409]);
+data.addRow([773.9,694.6337,773.9]);
+data.addRow([526.5,498.0631,526.5]);
+data.addRow([407,623.9252,407]);
+data.addRow([441.3,524.4404,441.3]);
+data.addRow([439.8,570.0366,439.8]);
+data.addRow([744.5,740.722,744.5]);
+data.addRow([653,597.737,653]);
+data.addRow([801,633.3313,801]);
+data.addRow([512,568.035,512]);
+data.addRow([901.5,738.6663,901.5]);
+data.addRow([493.5,607.9085,493.5]);
+data.addRow([420.1,516.0232,420.1]);
+data.addRow([799.1,758.9757,799.1]);
+data.addRow([627.3,553.7753,627.3]);
+data.addRow([467.5,562.9974,467.5]);
+data.addRow([803.4,760.431,803.4]);
+data.addRow([652.7,782.5194,652.7]);
+data.addRow([832.8,797.9351,832.8]);
+data.addRow([901.5,734.0305,901.5]);
+data.addRow([803.4,696.3873,803.4]);
+data.addRow([520.8,573.4974,520.8]);
+data.addRow([642,494.5081,642]);
+data.addRow([439.8,573.2472,439.8]);
+data.addRow([493.5,600.4751,493.5]);
+data.addRow([424.1,450.8132,424.1]);
+data.addRow([757.6,733.5686,757.6]);
+data.addRow([891.7,808.8782,891.7]);
+data.addRow([526.5,600.2917,526.5]);
+data.addRow([710.2,562.0237,710.2]);
+data.addRow([589.5,549.4214,589.5]);
+data.addRow([314,402.6524,314]);
+data.addRow([484,561.6258,484]);
+data.addRow([854.9,809.9278,854.9]);
+data.addRow([771.1,801.0975,771.1]);
+data.addRow([771.1,804.7595,771.1]);
+data.addRow([643,590.02,643]);
+data.addRow([680.5,536.5586,680.5]);
+data.addRow([827,824.5793,827]);
+data.addRow([595.5,697.0479,595.5]);
+data.addRow([493.5,562.3272,493.5]);
+data.addRow([799.1,848.971,799.1]);
+data.addRow([646.5,560.8377,646.5]);
+data.addRow([882.9,917.3874,882.9]);
+data.addRow([833.5,803.3413,833.5]);
+data.addRow([803.1,673.1793,803.1]);
+data.addRow([755,688.4951,755]);
+data.addRow([908.5,586.0253,908.5]);
+data.addRow([772.8,678.7248,772.8]);
+data.addRow([537,557.8863,537]);
+data.addRow([510.5,547.4898,510.5]);
+data.addRow([532.1,619.1782,532.1]);
+data.addRow([595.5,693.7259,595.5]);
+data.addRow([409,477.1995,409]);
+data.addRow([409,550.4266,409]);
+data.addRow([646.5,596.2009,646.5]);
+data.addRow([646.5,554.0505,646.5]);
+data.addRow([771.1,807.0016,771.1]);
+data.addRow([772.8,633.1425,772.8]);
+data.addRow([424.1,447.5308,424.1]);
+data.addRow([643,570.3276,643]);
+data.addRow([652.7,713.9134,652.7]);
+data.addRow([575.8,739.8303,575.8]);
+data.addRow([629.2,537.8879,629.2]);
+data.addRow([407,574.7892,407]);
+data.addRow([680.5,673.9654,680.5]);
+data.addRow([507,623.5029,507]);
+data.addRow([832.8,809.6213,832.8]);
+data.addRow([498.9,530.9561,498.9]);
+data.addRow([854.9,814.5985,854.9]);
+data.addRow([680.5,712.6346,680.5]);
+data.addRow([439.8,552.4754,439.8]);
+data.addRow([833.5,705.9855,833.5]);
+data.addRow([854.9,814.3171,854.9]);
+data.addRow([520.8,603.3248,520.8]);
+data.addRow([498.9,556.9674,498.9]);
+data.addRow([891.7,758.588,891.7]);
+data.addRow([574,571.777,574]);
+data.addRow([498.9,522.0707,498.9]);
+data.addRow([439.8,574.9187,439.8]);
+data.addRow([854.9,814.3306,854.9]);
+data.addRow([772.8,682.0699,772.8]);
+data.addRow([537,492.7138,537]);
+data.addRow([739.5,685.6813,739.5]);
+data.addRow([407,705.4301,407]);
+data.addRow([652.7,717.2743,652.7]);
+data.addRow([498.9,552.603,498.9]);
+data.addRow([771.1,832.8036,771.1]);
+data.addRow([420.1,543.0208,420.1]);
+data.addRow([589.5,562.0702,589.5]);
+data.addRow([755,621.748,755]);
+data.addRow([484.5,495.4861,484.5]);
+data.addRow([441.3,531.3982,441.3]);
+data.addRow([592.4,530.436,592.4]);
+data.addRow([755,636.8351,755]);
+data.addRow([833.5,797.773,833.5]);
+data.addRow([891.7,813.2742,891.7]);
+data.addRow([832.8,811.2474,832.8]);
+data.addRow([771.1,832.8287,771.1]);
+data.addRow([484.5,491.4063,484.5]);
+data.addRow([755,538.7894,755]);
+data.addRow([479.2,453.5954,479.2]);
+data.addRow([595.5,684.1345,595.5]);
+data.addRow([484,583.2688,484]);
+data.addRow([803.1,602.5798,803.1]);
+data.addRow([595.5,589.4149,595.5]);
+data.addRow([680.5,605.8254,680.5]);
+data.addRow([512,563.2426,512]);
+data.addRow([646.5,595.8478,646.5]);
+data.addRow([833.5,802.9518,833.5]);
+data.addRow([803.4,750.5906,803.4]);
+data.addRow([680.5,690.0138,680.5]);
+data.addRow([532.1,666.2171,532.1]);
+data.addRow([772.8,682.1825,772.8]);
+data.addRow([445,520.0717,445]);
+data.addRow([891.7,811.8803,891.7]);
+data.addRow([799.1,849.2585,799.1]);
+data.addRow([613.5,765.7463,613.5]);
+data.addRow([507,741.7814,507]);
+data.addRow([773.2,639.4145,773.2]);
+data.addRow([818.3,753.393,818.3]);
+data.addRow([409,484.9615,409]);
+data.addRow([510.5,548.1181,510.5]);
+data.addRow([513,439.6254,513]);
+data.addRow([445,552.1587,445]);
+data.addRow([424.1,485.2188,424.1]);
+data.addRow([574,567.0394,574]);
+data.addRow([818.3,650.5303,818.3]);
+data.addRow([757.6,729.8165,757.6]);
+data.addRow([414.3,499.1766,414.3]);
+data.addRow([680.5,641.4755,680.5]);
+data.addRow([818.3,760.1186,818.3]);
+data.addRow([526.7,478.9233,526.7]);
+data.addRow([773.2,647.668,773.2]);
+data.addRow([613.5,639.0527,613.5]);
+data.addRow([772.8,699.0831,772.8]);
+data.addRow([646.5,594.1699,646.5]);
+data.addRow([479.2,458.8304,479.2]);
+data.addRow([833.5,604.9082,833.5]);
+data.addRow([508.5,609.3735,508.5]);
+data.addRow([901.5,728.2484,901.5]);
+data.addRow([498.9,539.9987,498.9]);
+data.addRow([744.5,718.9943,744.5]);
+data.addRow([801,645.209,801]);
+data.addRow([680.5,630.0757,680.5]);
+data.addRow([772.8,682.4703,772.8]);
+data.addRow([757.6,784.5915,757.6]);
+data.addRow([693,542.0686,693]);
+data.addRow([787.9,766.6809,787.9]);
+data.addRow([634,703.8819,634]);
+data.addRow([653,530.7974,653]);
+viz = new google.visualization.ScatterChart(document.getElementById('trainscatter'));
+viz.draw(data,{width: 1000, height: 625, explorer: { actions: ['dragToZoom', 'rightClickToReset'] }, fontName: "Open Sans", title: 'Training data predictions vs actuals',chartArea: {left: 75,top: 75},hAxis: {title: 'Actual'},series:{1:{color:'black',pointSize:0,lineWidth:2,visibleInLegend:false},0:{visibleInLegend:false, color: '#0073BD'}},vAxis: {title: 'Predicted'}});}
+google.setOnLoadCallback(drawScatterTrain);
+ </script>
+<script type="text/javascript">
+function drawFullModelSymTable() {
+var data = new google.visualization.DataTable();
+data.addColumn('string','Model');
+data.addRows(1);
+data.setCell(0, 0, '<p style="font-size:120%">y = 74.4 x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> - 69.3 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 86.9 x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> + 2140.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">4</span> + 1.61e+4 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span> - 2140.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span> + 174.0 cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)) - 454.0 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>) + 17.7 abs(sin(sin(abs(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span>)))) + 45.6 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>) + 34.1 sin(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span>) + 79.6 cos(cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>) - 37.7 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> - 2.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3/2</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>) + 17.7 cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>) + 95.0 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>) + 251.0 cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)) + 152.0 log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>) + 79.6 abs(sin(abs(x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>))) - 2410.0 log(x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span> cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>) + 2.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span> - 0.369 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> + 153.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span> + 556.0 log(cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)))<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span> - 1.95e+4 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> - 3380.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span> + 97.3 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span> + 1.11e+4</p>');
+viz = new google.visualization.Table(document.getElementById('fullmodel_table'));
+viz.draw(data,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawFullModelSymTable);
+ </script>
+<script type="text/javascript">
+function drawGeneSymTable() {
+var data = new google.visualization.DataTable();
+data.addColumn('string','Term');
+data.addColumn('string','Value');
+data.addRows(20);
+data.setCell(0, 0, '<p class="table">Bias</p>');
+data.setCell(0, 1, '<p class="table">1.11e+4</p>');
+data.setCell(1, 0, '<p class="table">Gene 1</p>');
+data.setCell(1, 1, '<p class="table">2140.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">4</span> - 2140.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span></p>');
+data.setCell(2, 0, '<p class="table">Gene 2</p>');
+data.setCell(2, 1, '<p class="table">86.9 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 86.9 x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span></p>');
+data.setCell(3, 0, '<p class="table">Gene 3</p>');
+data.setCell(3, 1, '<p class="table">45.6 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)</p>');
+data.setCell(4, 0, '<p class="table">Gene 4</p>');
+data.setCell(4, 1, '<p class="table">174.0 cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>))</p>');
+data.setCell(5, 0, '<p class="table">Gene 5</p>');
+data.setCell(5, 1, '<p class="table">-0.369 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> (x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span>)</p>');
+data.setCell(6, 0, '<p class="table">Gene 6</p>');
+data.setCell(6, 1, '<p class="table">-2410.0 log(x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span> (2.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span> + cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>)) - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span></p>');
+data.setCell(7, 0, '<p class="table">Gene 7</p>');
+data.setCell(7, 1, '<p class="table">1.95e+4 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> (x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> - 1.0)</p>');
+data.setCell(8, 0, '<p class="table">Gene 8</p>');
+data.setCell(8, 1, '<p class="table">17.7 abs(sin(sin(abs(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span>)))) + 17.7 cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>) + 17.7 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span></p>');
+data.setCell(9, 0, '<p class="table">Gene 9</p>');
+data.setCell(9, 1, '<p class="table">251.0 cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>))</p>');
+data.setCell(10, 0, '<p class="table">Gene 10</p>');
+data.setCell(10, 1, '<p class="table">-3690.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span></p>');
+data.setCell(11, 0, '<p class="table">Gene 11</p>');
+data.setCell(11, 1, '<p class="table">-37.7 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> (x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 2.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>))<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)</p>');
+data.setCell(12, 0, '<p class="table">Gene 12</p>');
+data.setCell(12, 1, '<p class="table">556.0 log(cos(cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)))<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span></p>');
+data.setCell(13, 0, '<p class="table">Gene 13</p>');
+data.setCell(13, 1, '<p class="table">79.6 cos(cos(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>) + 79.6 abs(sin(abs(x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>))) + 79.6 x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span></p>');
+data.setCell(14, 0, '<p class="table">Gene 14</p>');
+data.setCell(14, 1, '<p class="table">74.4 x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span></p>');
+data.setCell(15, 0, '<p class="table">Gene 15</p>');
+data.setCell(15, 1, '<p class="table">95.0 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span>)</p>');
+data.setCell(16, 0, '<p class="table">Gene 16</p>');
+data.setCell(16, 1, '<p class="table">-454.0 cos(log(x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 1.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span>)<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span>)</p>');
+data.setCell(17, 0, '<p class="table">Gene 17</p>');
+data.setCell(17, 1, '<p class="table">3380.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> - 3380.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span> - 3380.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">3</span></p>');
+data.setCell(18, 0, '<p class="table">Gene 18</p>');
+data.setCell(18, 1, '<p class="table">152.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> + 152.0 log(x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span>) + 152.0 x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span></p>');
+data.setCell(19, 0, '<p class="table">Gene 19</p>');
+data.setCell(19, 1, '<p class="table">34.1 sin(x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span><span style="position:relative;bottom: 0.3em;font-size:0.7em">1/2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span>)</p>');
+viz = new google.visualization.Table(document.getElementById('genes_table'));
+viz.draw(data,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawGeneSymTable);
+ </script>
+<script type="text/javascript">
+function drawStructPropertiesTable() {
+var structdata = new google.visualization.DataTable();
+structdata.addColumn('string','Description');
+structdata.addColumn('string','Value');
+structdata.addRows(6);
+structdata.setCell(0, 0, '<p class="table">Genes</p>');
+structdata.setCell(0, 1, '<p class="table">19</p>');
+structdata.setCell(1, 0, '<p class="table">Nodes</p>');
+structdata.setCell(1, 1, '<p class="table">133</p>');
+structdata.setCell(2, 0, '<p class="table">Expressional complexity</p>');
+structdata.setCell(2, 1, '<p class="table">495</p>');
+structdata.setCell(3, 0, '<p class="table">Depth</p>');
+structdata.setCell(3, 1, '<p class="table">9</p>');
+structdata.setCell(4, 0, '<p class="table">Inputs</p>');
+structdata.setCell(4, 1, '<p class="table">6</p>');
+structdata.setCell(5, 0, '<p class="table">Inputs used</p>');
+structdata.setCell(5, 1, '<p class="table"> x<span style="position:relative;top: 0.3em;font-size:0.7em">1</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">2</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">3</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">4</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">5</span> x<span style="position:relative;top: 0.3em;font-size:0.7em">6</span></p>');
+structviz = new google.visualization.Table(document.getElementById('structtable'));
+structviz.draw(structdata,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawStructPropertiesTable);
+ </script>
+<script type="text/javascript">
+function drawGeneWeightsPlot() {
+var data = new google.visualization.DataTable();
+data.addColumn('string','Gene');
+data.addColumn('number','Value');
+data.addColumn({type:'string', role:'annotation'});
+data.addRow(['Bias',11109.0653,'1.11e+04']);
+data.addRow(['Gene 1',-2140.2789,'-2.14e+03']);
+data.addRow(['Gene 2',-86.8611,'-86.9']);
+data.addRow(['Gene 3',45.5697,'45.6']);
+data.addRow(['Gene 4',173.7953,'174']);
+data.addRow(['Gene 5',0.36927,'0.369']);
+data.addRow(['Gene 6',-2411.0588,'-2.41e+03']);
+data.addRow(['Gene 7',19478.6132,'1.95e+04']);
+data.addRow(['Gene 8',17.7319,'17.7']);
+data.addRow(['Gene 9',-251.2351,'-251']);
+data.addRow(['Gene 10',-3688.5485,'-3.69e+03']);
+data.addRow(['Gene 11',-37.6697,'-37.7']);
+data.addRow(['Gene 12',555.9651,'556']);
+data.addRow(['Gene 13',79.5988,'79.6']);
+data.addRow(['Gene 14',74.3841,'74.4']);
+data.addRow(['Gene 15',95.017,'95']);
+data.addRow(['Gene 16',-453.952,'-454']);
+data.addRow(['Gene 17',3380.1498,'3.38e+03']);
+data.addRow(['Gene 18',152.283,'152']);
+data.addRow(['Gene 19',34.1332,'34.1']);
+viz = new google.visualization.ColumnChart(document.getElementById('gene_colchart'));
+var options = {width: 1000, height: 625,title: 'Gene weights',chartArea: {left: 75,top: 75},  fontName: "Open Sans", series: {0:{visibleInLegend: false, color: '#0073BD' }}};
+viz.draw(data,options);}
+google.setOnLoadCallback(drawGeneWeightsPlot);
+ </script>
+<script type="text/javascript">
+function drawModelPerfTestTable() {
+var data = new google.visualization.DataTable();
+data.addColumn('string','Metric');
+data.addColumn('string','Value');
+data.addRows(6);
+data.setCell(0, 0, '<p class="table">R<span style="position:relative;bottom: 0.3em;font-size:0.7em">2</span></p>');
+data.setCell(0, 1, '<p class="table">0.53839</p>');
+data.setCell(1, 0, '<p class="table">RMSE</p>');
+data.setCell(1, 1, '<p class="table">104.5386</p>');
+data.setCell(2, 0, '<p class="table">MAE</p>');
+data.setCell(2, 1, '<p class="table">87.6449</p>');
+data.setCell(3, 0, '<p class="table">SSE</p>');
+data.setCell(3, 1, '<p class="table">1814101.2723</p>');
+data.setCell(4, 0, '<p class="table">Max. abs. error</p>');
+data.setCell(4, 1, '<p class="table">274.611</p>');
+data.setCell(5, 0, '<p class="table">MSE</p>');
+data.setCell(5, 1, '<p class="table">10928.3209</p>');
+viz = new google.visualization.Table(document.getElementById('perf_test_table'));
+viz.draw(data,  {width: 800, allowHtml: true});}
+google.setOnLoadCallback(drawModelPerfTestTable);
+ </script>
+<script type="text/javascript">
+function drawTestPredictions() {
+var testpreddata = new google.visualization.DataTable();
+testpreddata.addColumn('number','x');
+testpreddata.addColumn('number','Actual');
+testpreddata.addColumn('number','Predicted');
+testpreddata.addRow([1,532.1,594.8813]);
+testpreddata.addRow([2,771.1,813.0055]);
+testpreddata.addRow([3,710.2,519.9123]);
+testpreddata.addRow([4,744.5,762.2053]);
+testpreddata.addRow([5,818.3,652.0747]);
+testpreddata.addRow([6,520.8,590.3128]);
+testpreddata.addRow([7,409,478.0728]);
+testpreddata.addRow([8,833.5,742.6542]);
+testpreddata.addRow([9,773.9,693.5196]);
+testpreddata.addRow([10,803.4,762.9492]);
+testpreddata.addRow([11,513,493.7099]);
+testpreddata.addRow([12,475.4,480.9676]);
+testpreddata.addRow([13,771.1,820.1693]);
+testpreddata.addRow([14,773.9,710.9131]);
+testpreddata.addRow([15,787.9,742.0447]);
+testpreddata.addRow([16,799.1,672.9992]);
+testpreddata.addRow([17,513,447.4903]);
+testpreddata.addRow([18,744.5,740.492]);
+testpreddata.addRow([19,512,558.383]);
+testpreddata.addRow([20,575.8,593.7719]);
+testpreddata.addRow([21,459.5,577.4293]);
+testpreddata.addRow([22,634,704.732]);
+testpreddata.addRow([23,818.3,675.0071]);
+testpreddata.addRow([24,787.9,738.8454]);
+testpreddata.addRow([25,409,434.8571]);
+testpreddata.addRow([26,510.5,544.8038]);
+testpreddata.addRow([27,744.5,734.3043]);
+testpreddata.addRow([28,445,628.464]);
+testpreddata.addRow([29,424.1,378.3221]);
+testpreddata.addRow([30,818.3,653.4579]);
+testpreddata.addRow([31,803.1,588.4879]);
+testpreddata.addRow([32,818.3,652.0145]);
+testpreddata.addRow([33,595.5,589.0991]);
+testpreddata.addRow([34,854.9,906.9663]);
+testpreddata.addRow([35,575.8,732.3206]);
+testpreddata.addRow([36,396.5,454.2588]);
+testpreddata.addRow([37,479.2,458.235]);
+testpreddata.addRow([38,513,450.5691]);
+testpreddata.addRow([39,414.3,501.5676]);
+testpreddata.addRow([40,744.5,865.2625]);
+testpreddata.addRow([41,862.3,824.8193]);
+testpreddata.addRow([42,901.5,737.9268]);
+testpreddata.addRow([43,510.5,602.742]);
+testpreddata.addRow([44,832.8,797.5195]);
+testpreddata.addRow([45,577.9,592.5619]);
+testpreddata.addRow([46,642,543.3904]);
+testpreddata.addRow([47,693,456.7993]);
+testpreddata.addRow([48,803.4,752.0792]);
+testpreddata.addRow([49,396.5,562.4835]);
+testpreddata.addRow([50,646.5,595.5345]);
+testpreddata.addRow([51,493.5,598.6275]);
+testpreddata.addRow([52,803.1,592.0915]);
+testpreddata.addRow([53,520.8,575.3458]);
+testpreddata.addRow([54,574,525.9317]);
+testpreddata.addRow([55,577.9,595.251]);
+testpreddata.addRow([56,891.7,750.5309]);
+testpreddata.addRow([57,513,443.4084]);
+testpreddata.addRow([58,680.5,673.9059]);
+testpreddata.addRow([59,799.1,852.6949]);
+testpreddata.addRow([60,627.3,554.1822]);
+testpreddata.addRow([61,484,578.2591]);
+testpreddata.addRow([62,710.2,530.0419]);
+testpreddata.addRow([63,827,707.1953]);
+testpreddata.addRow([64,803.4,725.8824]);
+testpreddata.addRow([65,459.5,548.3515]);
+testpreddata.addRow([66,498.9,553.7209]);
+testpreddata.addRow([67,803.1,590.3246]);
+testpreddata.addRow([68,862.3,786.9088]);
+testpreddata.addRow([69,537,492.448]);
+testpreddata.addRow([70,498.9,536.6033]);
+testpreddata.addRow([71,653,531.1475]);
+testpreddata.addRow([72,613.5,766.5062]);
+testpreddata.addRow([73,757.6,775.8798]);
+testpreddata.addRow([74,407,624.2344]);
+testpreddata.addRow([75,833.5,709.7183]);
+testpreddata.addRow([76,752.5,561.1173]);
+testpreddata.addRow([77,543,428.6407]);
+testpreddata.addRow([78,739.5,662.5945]);
+testpreddata.addRow([79,739.5,668.3108]);
+testpreddata.addRow([80,575.8,741.1886]);
+testpreddata.addRow([81,512,700.8754]);
+testpreddata.addRow([82,653,542.5563]);
+testpreddata.addRow([83,710.2,647.6932]);
+testpreddata.addRow([84,407,613.417]);
+testpreddata.addRow([85,773.2,645.0036]);
+testpreddata.addRow([86,510.5,604.85]);
+testpreddata.addRow([87,744.5,804.0667]);
+testpreddata.addRow([88,744.5,852.4097]);
+testpreddata.addRow([89,652.7,717.654]);
+testpreddata.addRow([90,314,405.7934]);
+testpreddata.addRow([91,420.1,511.9806]);
+testpreddata.addRow([92,526.7,628.1435]);
+testpreddata.addRow([93,526.7,460.467]);
+testpreddata.addRow([94,577.9,517.2284]);
+testpreddata.addRow([95,577.9,604.2237]);
+testpreddata.addRow([96,712.9,769.5119]);
+testpreddata.addRow([97,832.8,788.1753]);
+testpreddata.addRow([98,712.9,769.7293]);
+testpreddata.addRow([99,532.1,662.7414]);
+testpreddata.addRow([100,439.8,578.4196]);
+testpreddata.addRow([101,507,612.6866]);
+testpreddata.addRow([102,680.5,690.8592]);
+testpreddata.addRow([103,484,498.0257]);
+testpreddata.addRow([104,771.1,820.1194]);
+testpreddata.addRow([105,803.4,723.6155]);
+testpreddata.addRow([106,508.5,589.2953]);
+testpreddata.addRow([107,739.5,598.7986]);
+testpreddata.addRow([108,445,629.0709]);
+testpreddata.addRow([109,467.5,558.6762]);
+testpreddata.addRow([110,693,540.6268]);
+testpreddata.addRow([111,771.1,821.4583]);
+testpreddata.addRow([112,752.5,581.3532]);
+testpreddata.addRow([113,484,497.3154]);
+testpreddata.addRow([114,803.1,795.0794]);
+testpreddata.addRow([115,577.9,608.5784]);
+testpreddata.addRow([116,757.6,748.0079]);
+testpreddata.addRow([117,420.1,547.3166]);
+testpreddata.addRow([118,755,637.5351]);
+testpreddata.addRow([119,439.8,556.9575]);
+testpreddata.addRow([120,479.2,458.826]);
+testpreddata.addRow([121,314,404.4634]);
+testpreddata.addRow([122,693,532.2533]);
+testpreddata.addRow([123,827,710.701]);
+testpreddata.addRow([124,752.5,818.1849]);
+testpreddata.addRow([125,772.8,697.8348]);
+testpreddata.addRow([126,543,541.4202]);
+testpreddata.addRow([127,757.6,729.6722]);
+testpreddata.addRow([128,420.1,512.2126]);
+testpreddata.addRow([129,773.9,663.6783]);
+testpreddata.addRow([130,680.5,858.0323]);
+testpreddata.addRow([131,508.5,583.1337]);
+testpreddata.addRow([132,526.7,466.7856]);
+testpreddata.addRow([133,799.1,848.5058]);
+testpreddata.addRow([134,908.5,633.889]);
+testpreddata.addRow([135,803.4,723.2401]);
+testpreddata.addRow([136,493.5,568.9161]);
+testpreddata.addRow([137,882.9,770.9224]);
+testpreddata.addRow([138,862.3,778.321]);
+testpreddata.addRow([139,739.5,596.1065]);
+testpreddata.addRow([140,680.5,638.6915]);
+testpreddata.addRow([141,479.2,451.6529]);
+testpreddata.addRow([142,537,557.2349]);
+testpreddata.addRow([143,484,577.1895]);
+testpreddata.addRow([144,739.5,611.8503]);
+testpreddata.addRow([145,833.5,866.9309]);
+testpreddata.addRow([146,475.4,595.2801]);
+testpreddata.addRow([147,407,574.7356]);
+testpreddata.addRow([148,526.5,526.7405]);
+testpreddata.addRow([149,577.9,531.3882]);
+testpreddata.addRow([150,772.8,699.9974]);
+testpreddata.addRow([151,498.9,537.3056]);
+testpreddata.addRow([152,862.3,797.6898]);
+testpreddata.addRow([153,484.5,531.5854]);
+testpreddata.addRow([154,832.8,891.405]);
+testpreddata.addRow([155,484,598.7396]);
+testpreddata.addRow([156,595.5,693.3076]);
+testpreddata.addRow([157,420.1,557.1971]);
+testpreddata.addRow([158,314,492.5965]);
+testpreddata.addRow([159,407,575.8423]);
+testpreddata.addRow([160,757.6,733.0825]);
+testpreddata.addRow([161,508.5,589.5026]);
+testpreddata.addRow([162,484.5,550.6746]);
+testpreddata.addRow([163,424.1,492.1633]);
+testpreddata.addRow([164,396.5,562.1452]);
+testpreddata.addRow([165,653,596.3915]);
+testpreddata.addRow([166,592.4,661.2601]);
+testpredviz = new google.visualization.LineChart(document.getElementById('testpreds'));
+testpredviz.draw(testpreddata,{curvetype: "function", width: 1000, height: 625, fontName: "Open Sans",  explorer: { actions: ['dragToZoom', 'rightClickToReset'] }, title: 'Test data predictions',series: {0:{color: '#0073BD'},1:{color: '#D9541A'}},chartArea: {left: 75, top:75},hAxis: {title: 'Datapoint'},vAxis: {title: 'y'}});}
+google.setOnLoadCallback(drawTestPredictions);
+ </script>
+<script type="text/javascript">
+function drawScatterTest() {
+var data = new google.visualization.DataTable();
+data.addColumn('number','Actual');
+data.addColumn('number','Actual / Predicted');
+data.addColumn('number','Identity');
+data.addRow([532.1,594.8813,532.1]);
+data.addRow([771.1,813.0055,771.1]);
+data.addRow([710.2,519.9123,710.2]);
+data.addRow([744.5,762.2053,744.5]);
+data.addRow([818.3,652.0747,818.3]);
+data.addRow([520.8,590.3128,520.8]);
+data.addRow([409,478.0728,409]);
+data.addRow([833.5,742.6542,833.5]);
+data.addRow([773.9,693.5196,773.9]);
+data.addRow([803.4,762.9492,803.4]);
+data.addRow([513,493.7099,513]);
+data.addRow([475.4,480.9676,475.4]);
+data.addRow([771.1,820.1693,771.1]);
+data.addRow([773.9,710.9131,773.9]);
+data.addRow([787.9,742.0447,787.9]);
+data.addRow([799.1,672.9992,799.1]);
+data.addRow([513,447.4903,513]);
+data.addRow([744.5,740.492,744.5]);
+data.addRow([512,558.383,512]);
+data.addRow([575.8,593.7719,575.8]);
+data.addRow([459.5,577.4293,459.5]);
+data.addRow([634,704.732,634]);
+data.addRow([818.3,675.0071,818.3]);
+data.addRow([787.9,738.8454,787.9]);
+data.addRow([409,434.8571,409]);
+data.addRow([510.5,544.8038,510.5]);
+data.addRow([744.5,734.3043,744.5]);
+data.addRow([445,628.464,445]);
+data.addRow([424.1,378.3221,424.1]);
+data.addRow([818.3,653.4579,818.3]);
+data.addRow([803.1,588.4879,803.1]);
+data.addRow([818.3,652.0145,818.3]);
+data.addRow([595.5,589.0991,595.5]);
+data.addRow([854.9,906.9663,854.9]);
+data.addRow([575.8,732.3206,575.8]);
+data.addRow([396.5,454.2588,396.5]);
+data.addRow([479.2,458.235,479.2]);
+data.addRow([513,450.5691,513]);
+data.addRow([414.3,501.5676,414.3]);
+data.addRow([744.5,865.2625,744.5]);
+data.addRow([862.3,824.8193,862.3]);
+data.addRow([901.5,737.9268,901.5]);
+data.addRow([510.5,602.742,510.5]);
+data.addRow([832.8,797.5195,832.8]);
+data.addRow([577.9,592.5619,577.9]);
+data.addRow([642,543.3904,642]);
+data.addRow([693,456.7993,693]);
+data.addRow([803.4,752.0792,803.4]);
+data.addRow([396.5,562.4835,396.5]);
+data.addRow([646.5,595.5345,646.5]);
+data.addRow([493.5,598.6275,493.5]);
+data.addRow([803.1,592.0915,803.1]);
+data.addRow([520.8,575.3458,520.8]);
+data.addRow([574,525.9317,574]);
+data.addRow([577.9,595.251,577.9]);
+data.addRow([891.7,750.5309,891.7]);
+data.addRow([513,443.4084,513]);
+data.addRow([680.5,673.9059,680.5]);
+data.addRow([799.1,852.6949,799.1]);
+data.addRow([627.3,554.1822,627.3]);
+data.addRow([484,578.2591,484]);
+data.addRow([710.2,530.0419,710.2]);
+data.addRow([827,707.1953,827]);
+data.addRow([803.4,725.8824,803.4]);
+data.addRow([459.5,548.3515,459.5]);
+data.addRow([498.9,553.7209,498.9]);
+data.addRow([803.1,590.3246,803.1]);
+data.addRow([862.3,786.9088,862.3]);
+data.addRow([537,492.448,537]);
+data.addRow([498.9,536.6033,498.9]);
+data.addRow([653,531.1475,653]);
+data.addRow([613.5,766.5062,613.5]);
+data.addRow([757.6,775.8798,757.6]);
+data.addRow([407,624.2344,407]);
+data.addRow([833.5,709.7183,833.5]);
+data.addRow([752.5,561.1173,752.5]);
+data.addRow([543,428.6407,543]);
+data.addRow([739.5,662.5945,739.5]);
+data.addRow([739.5,668.3108,739.5]);
+data.addRow([575.8,741.1886,575.8]);
+data.addRow([512,700.8754,512]);
+data.addRow([653,542.5563,653]);
+data.addRow([710.2,647.6932,710.2]);
+data.addRow([407,613.417,407]);
+data.addRow([773.2,645.0036,773.2]);
+data.addRow([510.5,604.85,510.5]);
+data.addRow([744.5,804.0667,744.5]);
+data.addRow([744.5,852.4097,744.5]);
+data.addRow([652.7,717.654,652.7]);
+data.addRow([314,405.7934,314]);
+data.addRow([420.1,511.9806,420.1]);
+data.addRow([526.7,628.1435,526.7]);
+data.addRow([526.7,460.467,526.7]);
+data.addRow([577.9,517.2284,577.9]);
+data.addRow([577.9,604.2237,577.9]);
+data.addRow([712.9,769.5119,712.9]);
+data.addRow([832.8,788.1753,832.8]);
+data.addRow([712.9,769.7293,712.9]);
+data.addRow([532.1,662.7414,532.1]);
+data.addRow([439.8,578.4196,439.8]);
+data.addRow([507,612.6866,507]);
+data.addRow([680.5,690.8592,680.5]);
+data.addRow([484,498.0257,484]);
+data.addRow([771.1,820.1194,771.1]);
+data.addRow([803.4,723.6155,803.4]);
+data.addRow([508.5,589.2953,508.5]);
+data.addRow([739.5,598.7986,739.5]);
+data.addRow([445,629.0709,445]);
+data.addRow([467.5,558.6762,467.5]);
+data.addRow([693,540.6268,693]);
+data.addRow([771.1,821.4583,771.1]);
+data.addRow([752.5,581.3532,752.5]);
+data.addRow([484,497.3154,484]);
+data.addRow([803.1,795.0794,803.1]);
+data.addRow([577.9,608.5784,577.9]);
+data.addRow([757.6,748.0079,757.6]);
+data.addRow([420.1,547.3166,420.1]);
+data.addRow([755,637.5351,755]);
+data.addRow([439.8,556.9575,439.8]);
+data.addRow([479.2,458.826,479.2]);
+data.addRow([314,404.4634,314]);
+data.addRow([693,532.2533,693]);
+data.addRow([827,710.701,827]);
+data.addRow([752.5,818.1849,752.5]);
+data.addRow([772.8,697.8348,772.8]);
+data.addRow([543,541.4202,543]);
+data.addRow([757.6,729.6722,757.6]);
+data.addRow([420.1,512.2126,420.1]);
+data.addRow([773.9,663.6783,773.9]);
+data.addRow([680.5,858.0323,680.5]);
+data.addRow([508.5,583.1337,508.5]);
+data.addRow([526.7,466.7856,526.7]);
+data.addRow([799.1,848.5058,799.1]);
+data.addRow([908.5,633.889,908.5]);
+data.addRow([803.4,723.2401,803.4]);
+data.addRow([493.5,568.9161,493.5]);
+data.addRow([882.9,770.9224,882.9]);
+data.addRow([862.3,778.321,862.3]);
+data.addRow([739.5,596.1065,739.5]);
+data.addRow([680.5,638.6915,680.5]);
+data.addRow([479.2,451.6529,479.2]);
+data.addRow([537,557.2349,537]);
+data.addRow([484,577.1895,484]);
+data.addRow([739.5,611.8503,739.5]);
+data.addRow([833.5,866.9309,833.5]);
+data.addRow([475.4,595.2801,475.4]);
+data.addRow([407,574.7356,407]);
+data.addRow([526.5,526.7405,526.5]);
+data.addRow([577.9,531.3882,577.9]);
+data.addRow([772.8,699.9974,772.8]);
+data.addRow([498.9,537.3056,498.9]);
+data.addRow([862.3,797.6898,862.3]);
+data.addRow([484.5,531.5854,484.5]);
+data.addRow([832.8,891.405,832.8]);
+data.addRow([484,598.7396,484]);
+data.addRow([595.5,693.3076,595.5]);
+data.addRow([420.1,557.1971,420.1]);
+data.addRow([314,492.5965,314]);
+data.addRow([407,575.8423,407]);
+data.addRow([757.6,733.0825,757.6]);
+data.addRow([508.5,589.5026,508.5]);
+data.addRow([484.5,550.6746,484.5]);
+data.addRow([424.1,492.1633,424.1]);
+data.addRow([396.5,562.1452,396.5]);
+data.addRow([653,596.3915,653]);
+data.addRow([592.4,661.2601,592.4]);
+viz = new google.visualization.ScatterChart(document.getElementById('testscatter'));
+viz.draw(data,{width: 1000, height: 625,title: 'Test data predictions vs actuals', fontName: "Open Sans", explorer: { actions: ['dragToZoom', 'rightClickToReset'] } ,chartArea: {left: 75,top: 75},hAxis: {title: 'Actual'},series:{1:{color:'black',pointSize:0,lineWidth:2,visibleInLegend:false},0:{visibleInLegend:false, color: '#0073BD'}},vAxis: {title: 'Predicted'}});}
+google.setOnLoadCallback(drawScatterTest);
+ </script>
+</head>
+<body style="font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif; border: 0;">
+<div style="text-align: left;margin-bottom: 50px;margin-top: 50px;margin-left: 15px;"><h2>GPTIPS model report</h2>
+<p class="text">For model with ID: 967</p>
+<p class="date">26-Mar-2025 00:51:06</p>
+<h3>Configuration</h3>
+<div id="configtable"></div>
+<h3>Run parameters (run 1)</h3>
+<div id="runtable"></div>
+<h3>Overall model</h3>
+<p class="text">Overall model after simplification. Numerical precision reduced for display purposes.</p>
+<div id="fullmodel_table"></div>
+<h3>Individual genes/model terms</h3>
+<p class="text">Each gene includes its weighting coefficient. Numerical precision reduced for display purposes.</p>
+<div id ="genes_table"></div>
+<div id ="gene_colchart"></div>
+<h3>Model performance</h3>
+<p class="text">Performance metrics for the model.</p>
+<p class="text">R<sup>2</sup> - goodness of fit (coefficient of determination).</p>
+<p class="text">RMSE - root mean squared error.</p>
+<p class="text">MAE - mean absolute error.</p>
+<p>SSE - sum of squared errors.</p>
+<p>MSE - mean squared error.</p>
+<p class="warn">Note: no validation predictions are displayed because no validation data was found.</p>
+<p><b>Training Data</b></p>
+<div id ="perf_train_table"></div>
+<p><b>Test Data</b></p>
+<div id ="perf_test_table"></div>
+<h3>Model properties</h3>
+<p>Structural properties relating to GP tree representation.</p>
+<div id ="structtable"></div>
+<h3>Model predictions and actual outputs</h3><p>Graphs showing model predictions and actual values. Click and drag to zoom.</p><div id="trainpreds"></div>
+<div id="trainvizpng"></div>
+<div id="valpreds"></div>
+<div id="testpreds"></div>
+<h3>Scatterplots (predicted vs actuals)</h3><p>Good predictions are those close to the identity line (shown in black). Click and drag to zoom.</p><div id="trainscatter"></div>
+<div id="valscatter"></div>
+<div id="testscatter"></div>
+<h3>Gene tree structures</h3>
+<p>Tree structure of the individual genes that comprise the model.</p>
+<table><tr><td style="text-align:center;"><p>Gene 1</p>
+</td></tr><tr><td><div id="tree1" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 2</p>
+</td></tr><tr><td><div id="tree2" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 3</p>
+</td></tr><tr><td><div id="tree3" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 4</p>
+</td></tr><tr><td><div id="tree4" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 5</p>
+</td></tr><tr><td><div id="tree5" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 6</p>
+</td></tr><tr><td><div id="tree6" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 7</p>
+</td></tr><tr><td><div id="tree7" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 8</p>
+</td></tr><tr><td><div id="tree8" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 9</p>
+</td></tr><tr><td><div id="tree9" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 10</p>
+</td></tr><tr><td><div id="tree10" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 11</p>
+</td></tr><tr><td><div id="tree11" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 12</p>
+</td></tr><tr><td><div id="tree12" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 13</p>
+</td></tr><tr><td><div id="tree13" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 14</p>
+</td></tr><tr><td><div id="tree14" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 15</p>
+</td></tr><tr><td><div id="tree15" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 16</p>
+</td></tr><tr><td><div id="tree16" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 17</p>
+</td></tr><tr><td><div id="tree17" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 18</p>
+</td></tr><tr><td><div id="tree18" style="width: 300px;"></div>
+</td></tr></table><table><tr><td style="text-align:center;"><p>Gene 19</p>
+</td></tr><tr><td><div id="tree19" style="width: 300px;"></div>
+</td></tr></table><p style="color:gray;text-align:center;margin-top: 50px;">GPTIPS - the symbolic data mining platform for MATLAB</p><p style="color:gray;text-align:center;">&#169; Dominic Searson 2009-2015</p></div></body>
+</html>

@@ -1,0 +1,73 @@
+[System]
+Name='Fuzzy_Finale'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Moisture Content'
+Range=[60 100]
+NumMFs=3
+MF1='Low':'trimf',[60 75 90]
+MF2='Average':'trimf',[75 90 94]
+MF3='High':'trimf',[90 94 100]
+
+[Input2]
+Name='Chlorophyll-A'
+Range=[0.1 0.4]
+NumMFs=3
+MF1='Low':'trimf',[0.1 0.17 0.241]
+MF2='Moderate':'trimf',[0.17 0.24 0.368]
+MF3='High':'trimf',[0.24 0.368 0.4]
+
+[Input3]
+Name='Fresh Head Weight'
+Range=[100 905]
+NumMFs=3
+MF1='Low':'trimf',[100 150 200]
+MF2='Average':'trimf',[150 200 450]
+MF3='High':'trimf',[200 450 905]
+
+[Output1]
+Name='Grading Level'
+Range=[0 100]
+NumMFs=3
+MF1='L3':'trimf',[0 25 50]
+MF2='L2':'trimf',[25 50 75]
+MF3='L1':'trimf',[50 75 100]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 1 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 2 (1) : 1
+2 1 3, 2 (1) : 1
+3 1 1, 1 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 2 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 3 (1) : 1
+2 2 3, 3 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 3 (1) : 1
+3 2 3, 3 (1) : 1
+1 3 1, 1 (1) : 1
+1 3 2, 3 (1) : 1
+1 3 3, 3 (1) : 1
+2 3 1, 3 (1) : 1
+2 3 2, 3 (1) : 1
+2 3 3, 3 (1) : 1
+3 3 1, 3 (1) : 1
+3 3 2, 3 (1) : 1
+3 3 3, 2 (1) : 1

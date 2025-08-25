@@ -1,0 +1,38 @@
+% initialize arduino
+a = arduino('COM3', 'Mega2560');
+
+% relay pin
+relayPin = 'D7'; 
+sensorPin = 'D2'; 
+                  % VCC = Brown
+                  % Signal = Black
+                  % GND = Blue
+
+%%
+% main loop
+
+while true
+
+    % input to control conveyor
+    command = input('Enter command (1 to turn on, 0 to turn off, q to quit): ', 's');
+
+    if command == '1'
+        writeDigitalpin(a, relayPin, 1);
+        disp('Conveyor is on');
+
+    elseif command == '0'
+        writeDigitalpin(a, relayPin, 0);
+        disp('Conveyor is off');
+
+    elseif command == 'q'
+        disp('Exiting program');
+        break;
+
+    else
+        disp('Invalid command');
+
+    end
+
+end
+
+clear a; % clears arduino 
