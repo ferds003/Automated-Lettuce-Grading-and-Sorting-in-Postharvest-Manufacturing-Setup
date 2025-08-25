@@ -76,9 +76,10 @@ While the system demonstrates strong potential, several enhancements could impro
 
 ---
 
-## 📌 Citation
-If you use this work, kindly cite us. Thanks.
+## 📌 Citation and Request
+If you use this work useful, kindly cite us. Thanks.
 
+We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
 ---
 
 ## 🛠️ Authors
