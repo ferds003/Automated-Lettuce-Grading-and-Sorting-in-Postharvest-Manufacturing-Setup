@@ -35,7 +35,7 @@ We did not provide the raw images and lab testing in this repository due to priv
 ---
 
 ## Directory
-
+```bash
 📂 Project Root
 ├── 📂 fuzzy_modelling # Fuzzy inference system (built in Fuzzy Designer)
 │ └── Fuzzy_Finale.fis
@@ -64,7 +64,7 @@ We did not provide the raw images and lab testing in this repository due to priv
 ├── Test_cam.m
 ├── Test_sensor.m
 └── servo_test.m
-
+```
 ---
 # ABOUT THE SYSTEM:
 ## ✨ Key Features
