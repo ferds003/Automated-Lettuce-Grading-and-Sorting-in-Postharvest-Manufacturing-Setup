@@ -1,10 +1,72 @@
-# Automated-Lettuce-Grading-and-Sorting-in-Postharvest-Manufacturing-Setup-
+# Automated-Lettuce-Grading-and-Sorting-in-Postharvest-Manufacturing-Setup
 
 This project presents an **automated quality grading system** for iceberg lettuce (*Lactuca sativa var. capitata*), integrating **Genetic Programming (GP)** for parameter estimation and **Fuzzy Logic (FL)** for quality classification.  
 The system addresses inefficiencies in manual grading, ensuring **objective, consistent, and non-destructive** quality assessment.
 
 ---
 
+# MATLAB Toolbox Requirements
+
+This project integrates **Genetic Programming (GP)** with **Fuzzy Logic (FL)** and hardware control for automated lettuce grading.  
+To run the code successfully, the following MATLAB toolboxes and support packages are required:
+
+## ✅ Required Toolbox
+- **GPTIPS Toolbox**  
+- **Fuzzy Logic Toolbox**  
+- **Image Acquisition Toolbox**  
+- **Image Processing Toolbox**  
+- **Spreadsheet Toolbox / MATLAB Excel Integration**
+  
+## ✅ Required Support Packages
+- **MATLAB Support Package for USB Webcams** 
+- **MATLAB Support Package for Arduino Hardware**  
+
+### 🔧 Installation Notes
+- Ensure all support packages are installed via **MATLAB Add-On Explorer** (`matlab.addons.install`).
+
+ 
+---
+  
+## 📌 Citation and Request
+
+If you find this work useful, kindly cite us. Thanks.
+We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
+
+---
+
+## Directory
+```bash
+📂 Project Root
+├── 📂 fuzzy_modelling # Fuzzy inference system (built in Fuzzy Designer)
+│   └── Fuzzy_Finale.fis
+│
+├── 📂 genetic_models # GP models + reports
+│ ├── chla.m
+│ ├── moist.m
+│ ├── weight.m
+│ ├── 📂 chlA_pareto
+│ │   ├── chlA_m241g50r50_MR.html
+│ │   └── chlA_m241g50r50_pareto.html
+│ ├── 📂 moist_pareto
+│ │   ├── moist_m2248g50r50_MR.html
+│ │   └── moist_m2248g50r50_pareto.html
+│ └── 📂 weight_pareto
+│     ├── weight_m967g50r50_MR.html
+│     └── weight_m967g50r50_pareto.html
+│
+├── main.m # Main script loop
+│
+└── 📂 tests # Optional tests for system validation
+    ├── Conveyor_Move.asv
+    ├── Conveyor_Move.m
+    ├── Fuzzy_Test.asv
+    ├── Fuzzy_Test.m
+    ├── Test_cam.m
+    ├── Test_sensor.m
+    └── servo_test.m
+```
+---
+# ABOUT THE SYSTEM:
 ## ✨ Key Features
 - Uses **image-derived features** (RGB & HSV) for analysis.
 - Estimates **chlorophyll-a**, **moisture content**, and **fresh head weight** via genetic programming (GP) models.
@@ -51,34 +113,6 @@ Three key quality parameters were measured in the laboratory:
   - Fresh Head Weight: 85.38%  
 - Overall **system grading accuracy: 90% (27/30 samples correctly classified)**.  
 - Minor misclassifications occurred, mostly biasing towards Grade 2 when the true grade was Grade 3.
-
----
-
-## 🚀 Improvements & Future Work
-While the system demonstrates strong potential, several enhancements could improve robustness and real-world applicability:
-
-1. **Expand Dataset Size**
-   - Current dataset: 56 samples (augmented to 617).  
-   - Future: Increase real-world samples across varying lighting, maturity stages, and growing conditions.
-2. **Improve Moisture Content Estimation**
-   - GP models for moisture showed lower R² (0.43). Consider incorporating more features and other lettuce quality parameters for better accuracy.
-3. **Integrate Deep Learning with Interpretability**
-   - Current system prioritizes interpretability (GP + FL).  
-   - Hybrid models combining **CNNs for feature extraction** + **GP/FL for decision-making** could balance accuracy and transparency.
-4. **Hardware Integration**
-   - Automate real-time grading at farms or markets.
-   - Comparative analysis of the study compared to the traditional postharvest handling. 
-5. **Refine Fuzzy Logic Rules**
-   - More nuanced membership functions could better capture borderline cases (L2/L3 misclassifications).  
-   - Explore **Type-2 fuzzy logic** for uncertainty handling.
-6. **Multi-Crop Adaptation**
-   - Extend our approach to other leafy vegetables or fruits by retraining GP models and fuzzy rules.
-
----
-
-## 📌 Citation
-If you use this work, kindly cite us. Thanks.
-
 ---
 
 ## 🛠️ Authors
