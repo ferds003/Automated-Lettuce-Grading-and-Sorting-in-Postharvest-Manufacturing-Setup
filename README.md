@@ -29,7 +29,7 @@ To run the code successfully, the following MATLAB toolboxes and support package
   
 ## 📌 Citation and Request
 
-If you use this work useful, kindly cite us. Thanks.
+If you find this work useful, kindly cite us. Thanks.
 We did not provide the raw images and lab testing in this repository due to privacy reasons but final models are given. Raw data and image is available upon request.  
 
 ---
