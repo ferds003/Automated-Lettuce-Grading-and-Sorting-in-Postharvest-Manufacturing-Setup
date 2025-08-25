@@ -41,15 +41,15 @@ We did not provide the raw images and lab testing in this repository due to priv
 │   └── Fuzzy_Finale.fis
 │
 ├── 📂 genetic_models # GP models + reports
+│ ├── chla.m
+│ ├── moist.m
+│ ├── weight.m
 │ ├── 📂 chlA_pareto
 │ │   ├── chlA_m241g50r50_MR.html
 │ │   └── chlA_m241g50r50_pareto.html
-│ ├── chla.m
-│ ├── moist.m
 │ ├── 📂 moist_pareto
 │ │   ├── moist_m2248g50r50_MR.html
 │ │   └── moist_m2248g50r50_pareto.html
-│ ├── weight.m
 │ └── 📂 weight_pareto
 │     ├── weight_m967g50r50_MR.html
 │     └── weight_m967g50r50_pareto.html
