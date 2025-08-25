@@ -60,30 +60,24 @@ While the system demonstrates strong potential, several enhancements could impro
 1. **Expand Dataset Size**
    - Current dataset: 56 samples (augmented to 617).  
    - Future: Increase real-world samples across varying lighting, maturity stages, and growing conditions.
-
 2. **Improve Moisture Content Estimation**
-   - GP models for moisture showed lower R² (0.43).  
-   - Consider incorporating **hyperspectral imaging** or **NIR (Near-Infrared) sensors** for better accuracy.
-
+   - GP models for moisture showed lower R² (0.43). Consider incorporating more features and other lettuce quality parameters for better accuracy.
 3. **Integrate Deep Learning with Interpretability**
    - Current system prioritizes interpretability (GP + FL).  
    - Hybrid models combining **CNNs for feature extraction** + **GP/FL for decision-making** could balance accuracy and transparency.
-
 4. **Hardware Integration**
-   - Develop a **portable embedded system** (e.g., Raspberry Pi + camera + IoT sensors) for field deployment.  
    - Automate real-time grading at farms or markets.
-
+   - Comparative analysis of the study compared to the traditional postharvest handling. 
 5. **Refine Fuzzy Logic Rules**
    - More nuanced membership functions could better capture borderline cases (L2/L3 misclassifications).  
    - Explore **Type-2 fuzzy logic** for uncertainty handling.
-
 6. **Multi-Crop Adaptation**
-   - Extend the approach to other leafy vegetables or fruits by retraining GP models and fuzzy rules.
+   - Extend our approach to other leafy vegetables or fruits by retraining GP models and fuzzy rules.
 
 ---
 
 ## 📌 Citation
-If you use this work, please cite us. Thanks.
+If you use this work, kindly cite us. Thanks.
 
 ---
 
@@ -94,7 +88,7 @@ If you use this work, please cite us. Thanks.
 - Juan Gabriel L. Galang  
 - Elmo F. Mandigma
 
-
-- Ira C. Valenzuela  
+## Adviser
+- Ira C. Valenzuela-Estopia  
 
 ---
