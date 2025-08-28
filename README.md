@@ -123,6 +123,6 @@ Three key quality parameters were measured in the laboratory:
 - Elmo F. Mandigma
 
 ## Adviser
-- Ira C. Valenzuela-Estopia  
+- Ira C. Valenzuela-Estropia  
 
 ---
