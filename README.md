@@ -1,6 +1,6 @@
 # Automated-Lettuce-Grading-and-Sorting-in-Postharvest-Manufacturing-Setup
 
-This project presents an **automated quality grading system** for iceberg lettuce (*Lactuca sativa var. capitata*), integrating **Genetic Programming (GP)** for parameter estimation and **Fuzzy Logic (FL)** for quality classification.  
+This project presents a **vision-based automated quality grading system** for iceberg lettuce (*Lactuca sativa var. capitata*), integrating **Genetic Programming (GP)** for parameter estimation and **Fuzzy Logic (FL)** for quality classification.  
 The system addresses inefficiencies in manual grading, ensuring **objective, consistent, and non-destructive** quality assessment in line with **hilippine National Standard for Head Lettuce (PNS/BAFPS 19:2005)**
 
 ---
